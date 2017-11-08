@@ -18,13 +18,13 @@ class ChatController extends Controller
 {
 
     /**
-     * @Route("/chat/{var}")
+     * @Route("/chat/{chatroom}")
      */
-    public function showAction($var) {
+    public function showAction($chatroom) {
 
         $template = $this->container->get('templating');
         $html = $template->render('chat/chat.html.twig',
-            ['chat'=> $var]);
+            ['chat'=> $chatroom]);
         return new Response($html);
     }
 }
