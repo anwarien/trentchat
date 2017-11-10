@@ -24,13 +24,11 @@
         <a href="{{ path('notes') }}">JSON DATA</a>
     </form>{% endblock %}
 {% block javascripts %}
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-
         $(function () {
             $('form').submit(function(){
-                // later, implement storing message to backend
+                // later: implement storing messages to backend
                 // and then having backend display message
                 $('#messages').append($('<li>').text($('#m').val()));
                 window.scrollTo(0, document.body.scrollHeight);
@@ -40,7 +38,5 @@
         });
     </script>
 {% endblock %}
-
-
 </body>
 </html>
