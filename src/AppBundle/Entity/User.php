@@ -69,7 +69,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return integer
      */
     public function getId()
     {
