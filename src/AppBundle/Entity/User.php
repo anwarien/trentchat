@@ -37,6 +37,27 @@ class User
     private $lastname;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    private $description;
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
      * @return mixed
      */
     public function getFirstname()
