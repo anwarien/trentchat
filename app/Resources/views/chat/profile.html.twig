@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block title %}User Profile: {{ user.userName }}{% endblock %}
+{% block body %}
+    {#TODO: add option to edit first and last name#}
+    {#TODO: Location with option to display#}
+    <h1><b>{{ user.userName }}</b></h1>
+    <h3>Name: {{ user.firstname}} {{ user.lastname }}</h3>
+{% endblock %}

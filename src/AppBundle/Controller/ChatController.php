@@ -26,16 +26,16 @@ class ChatController extends Controller
 
         $user = new User();
         $username= 'user'.rand(1,100);
-        $user->setName($username);
+        $user->setUserName($username);
         $em = $this->getDoctrine()->getManager();
         $em->persist($user);
         $em->flush();
 
-        return new Response('<html><body>User ' . $username .' created!</body></html>');
+        return new Response('<html><body>User '.$username .' created!</body></html>');
     }
 
     /**
-     * @Route("/chat")
+     * @Route("/chat", name="listusers")
      */
     public function listUsersAction() {
 
@@ -43,9 +43,25 @@ class ChatController extends Controller
         $users = $em->getRepository('AppBundle:User')->findAll();
 
 
-        return $this->render('chat.list.html.twig', [
+        return $this->render('chat/list.html.twig', [
             'users' => $users,
             ]);
+    }
+
+    /**
+     * @Route("/profiles/{username}", name="profilepage")
+     */
+    public function displayProfileAction($username) {
+
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('AppBundle:User')->findOneBy(['username'=>$username]);
+
+        if (!$user) throw $this->createNotFoundException('User not found');
+
+        return  $this->render('chat/profile.html.twig' ,
+            [ 'user'=> $user]
+        );
+
     }
 
     /**

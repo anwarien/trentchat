@@ -24,7 +24,49 @@ class User
     /**
      * @ORM\Column(type="string")
      */
-    private $name;
+    private $username;
+
+    /**
+     * @ORM\Column(type="string",nullable=true)
+     */
+    private $firstname;
+
+    /**
+     * @ORM\Column(type="string",nullable=true)
+     */
+    private $lastname;
+
+    /**
+     * @return mixed
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * @param mixed $firstname
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * @param mixed $lastname
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+    }
 
     /**
      * @return mixed
@@ -38,17 +80,17 @@ class User
     /**
      * @return mixed
      */
-    public function getName()
+    public function getUserName()
     {
-        return $this->name;
+        return $this->username;
     }
 
     /**
      * @param mixed $name
      */
-    public function setName($name)
+    public function setUserName($username)
     {
-        $this->name = $name;
+        $this->username = $username;
     }
 
 
