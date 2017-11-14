@@ -25,9 +25,32 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string",nullable =true)
      */
     private $firstname;
+
+    /**
+     * @ORM\Column(type="string",nullable =true)
+     */
+    private $lastname;
+
+
+    /**
+     * @return mixed
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * @param mixed $lastname
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+    }
+
 
     /**
      * @return mixed

@@ -40,3 +40,6 @@ services:
     app.redirect_app_after_registration_subscriber:
         class: AppBundle\EventListener\RedirectAfterRegistrationSubscriber
         autowire: true
+    app.security.login_form_authenticator:
+        class: AppBundle\Security\LoginFormAuthenticator
+        autowire: true

@@ -103,4 +103,12 @@ class ChatController extends Controller
     }
 
 
+    /**
+     * @Route("/admin",name="admin")
+     */
+    public function adminAction() {
+        return new Response('<html><body><h1>Admins only</h1></body></html>');
+    }
+
+
 }
