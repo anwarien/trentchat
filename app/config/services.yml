@@ -33,3 +33,10 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    app.form.registration:
+        class: AppBundle\Form\RegistrationFormType
+
+    app.redirect_app_after_registration_subscriber:
+        class: AppBundle\EventListener\RedirectAfterRegistrationSubscriber
+        autowire: true

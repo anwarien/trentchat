@@ -11,11 +11,6 @@ class LoadFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        /*$user = new User();
-        $username= 'user'.rand(1,100);
-        $user->setUserName($username);
-        $manager->persist($user);
-        $manager->flush();*/
 
         Fixtures::load(__DIR__.'/fixtures.yml',$manager);
     }

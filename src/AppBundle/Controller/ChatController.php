@@ -19,6 +19,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ChatController extends Controller
 {
+
+    /**
+     * @Route("/",name = "homepage")
+     */
+    public function homepageAction()
+    {
+        return $this->render('chat/login.html.twig');
+    }
+
     /**
      * @Route("/chat/newuser", name="newuser" )
      */
@@ -40,6 +49,7 @@ class ChatController extends Controller
     public function listUsersAction() {
 
         $em = $this->getDoctrine()->getManager();
+        //$users = $em->getRepository('AppBundle:User')->findAllVerified();
         $users = $em->getRepository('AppBundle:User')->findAll();
 
 
@@ -91,4 +101,6 @@ class ChatController extends Controller
 
         return new Response($html);
     }
+
+
 }
