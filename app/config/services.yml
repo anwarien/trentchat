@@ -43,3 +43,7 @@ services:
     app.security.login_form_authenticator:
         class: AppBundle\Security\LoginFormAuthenticator
         autowire: true
+    chat:
+        class: AppBundle\WebSocket\ChatSocket
+        autowire: true
+        public: true

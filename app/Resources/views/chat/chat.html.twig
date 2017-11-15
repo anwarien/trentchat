@@ -26,6 +26,18 @@
 {% block javascripts %}
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
+
+        //connecting to websocket...
+        var conn = new WebSocket('ws://localhost:8080');
+        console.log(conn);
+        conn.onopen = function(e) {
+            console.log("Connection established!");
+        };
+
+        conn.onmessage = function(e) {
+            console.log(e.data);
+        };
+
         $(function () {
             $('form').submit(function(){
                 // later: implement storing messages to backend

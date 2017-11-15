@@ -21,15 +21,14 @@ class ChatController extends Controller
 {
 
     /**
-     * @Route("/",name = "homepage")
+     * @Route("/",name="homepage")
      */
-    public function homepageAction()
-    {
+    public function homepageAction() {
         return $this->render('chat/login.html.twig');
     }
 
     /**
-     * @Route("/chat/newuser", name="newuser" )
+     * @Route("/chat/newuser", name="newuser")
      */
     public function createUserAction() {
 
@@ -89,6 +88,7 @@ class ChatController extends Controller
         return new JsonResponse($userData);
 
     }
+
     /**
      * @Route("/chat/{chatroom}")
      */
@@ -107,7 +107,7 @@ class ChatController extends Controller
      * @Route("/admin",name="admin")
      */
     public function adminAction() {
-        return new Response('<html><body><h1>Admins only</h1></body></html>');
+        return new Response('<html><body><h1>Admins Only</h1></body></html>');
     }
 
 

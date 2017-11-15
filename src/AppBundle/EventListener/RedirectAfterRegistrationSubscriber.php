@@ -28,8 +28,6 @@ class RedirectAfterRegistrationSubscriber implements EventSubscriberInterface
 
     public function __construct(RouterInterface $router)
     {
-
-
         $this->router = $router;
     }
 
