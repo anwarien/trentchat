@@ -23,7 +23,7 @@ class ServerCommand extends ContainerAwareCommand
     {
         $this
             ->setName('chat:server')
-            ->setDescription('Start the Chat server');
+            ->setDescription('Start the chat socket');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -31,15 +31,12 @@ class ServerCommand extends ContainerAwareCommand
         $chat = $this->getContainer()->get('chat');
         $server = IoServer::factory(
             new HttpServer(
-                new WsServer(
-                    new ChatSocket()
-                )
+                new WsServer($chat)
             ),
             8080
         );
-        $output->write('Server running on port:8080...');
+        $output->write("Socket running on port:8080...\n");
         $server->run();
-
     }
 
 }

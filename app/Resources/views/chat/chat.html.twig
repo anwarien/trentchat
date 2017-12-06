@@ -18,7 +18,9 @@
 
 </head>
 <body>
-{% block body %}<ul id="messages"></ul>
+
+{% block body %}
+    <ul id="messages"></ul>
     <form action="">
         <input id="m" autocomplete="off"/><button>Send</button>
         <a href="{{ path('notes') }}">JSON DATA</a>
@@ -26,26 +28,28 @@
 {% block javascripts %}
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-
         //connecting to websocket...
         var conn = new WebSocket('ws://localhost:8080');
+        var user = '{{ app.user.username }}';
         console.log(conn);
         conn.onopen = function(e) {
             console.log("Connection established!");
+            conn.send(user + ' has logged in!');
         };
-
         conn.onmessage = function(e) {
             console.log(e.data);
         };
-
         $(function () {
-            $('form').submit(function(){
-                // later: implement storing messages to backend
-                // and then having backend display message
-                $('#messages').append($('<li>').text($('#m').val()));
+            $('form').submit(function() {
+
+                // implement storing/sending messages to backend
+                // and then having backend display message to logged in clients
+                conn.send(user + ': ' + $('#m').val());
+                $('#messages').append($('<li>').text(user + ': ' + $('#m').val()));
                 window.scrollTo(0, document.body.scrollHeight);
                 $('#m').val('');
                 return false;
+
             });
         });
     </script>

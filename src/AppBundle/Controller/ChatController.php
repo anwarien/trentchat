@@ -90,10 +90,11 @@ class ChatController extends Controller
     }
 
     /**
-     * @Route("/chat/{chatroom}")
+     * @Route("/chat/room")
      */
-    public function showAction($chatroom) {
+    public function showAction() {
 
+        $chatroom = "TEST_ROOM";
         $template = $this->container->get('templating');
         $html = $template->render('chat/chat.html.twig',
             ['chat'=> $chatroom]);

@@ -4,9 +4,7 @@ security:
     encoders:
         AppBundle\Entity\User: bcrypt
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
-    providers:
-        fos_userbundle:
-            id: fos_user.user_provider.username
+
 
 
     firewalls:
@@ -33,6 +31,10 @@ security:
 
             remember_me:
                 secret: '%secret%'
+    providers:
+            fos_userbundle:
+                id: fos_user.user_provider.username
 
     access_control:
         - { path: ^/admin, roles: ROLE_USER }
+        - { path: ^/chat/room, roles: ROLE_USER }
