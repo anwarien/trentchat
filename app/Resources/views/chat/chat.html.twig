@@ -38,6 +38,7 @@
         };
         conn.onmessage = function(e) {
             console.log(e.data);
+            $('#messages').append($('<li>').text(e.data));
         };
         $(function () {
             $('form').submit(function() {
