@@ -36,15 +36,16 @@
             console.log("Connection established!");
             conn.send(user + ' has logged in!');
         };
+        conn.onclose = function (e) {
+            conn.send(user + ' has logged out')
+        }
+
         conn.onmessage = function(e) {
             console.log(e.data);
             $('#messages').append($('<li>').text(e.data));
         };
         $(function () {
             $('form').submit(function() {
-
-                // implement storing/sending messages to backend
-                // and then having backend display message to logged in clients
                 conn.send(user + ': ' + $('#m').val());
                 $('#messages').append($('<li>').text(user + ': ' + $('#m').val()));
                 window.scrollTo(0, document.body.scrollHeight);
