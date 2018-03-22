@@ -81,8 +81,8 @@ class ChatController extends Controller
 
         $userData = [
             ['id'=>1,'username' =>'john123'],
-            ['id'=>2,'username' =>'doggyboi3'],
-            ['id'=>3,'username' =>'21igk'],
+            ['id'=>2,'username' =>'dogboi3'],
+            ['id'=>3,'username' =>'2-1ny'],
         ];
 
         return new JsonResponse($userData);

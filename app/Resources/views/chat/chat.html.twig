@@ -6,6 +6,8 @@
         <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font: 13px Helvetica, Arial; }
+        label {  background: #FFF;  padding: 3px;  text-align: center;  position: fixed;
+            bottom: 0;  right:0;  top: 0;  width: 10%;  border:1px solid gray;  }
         form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
         form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
         form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
@@ -13,6 +15,8 @@
         #messages li { padding: 5px 10px; }
         #messages li:nth-child(odd) { background: #eee; }
         #messages { margin-bottom: 40px }
+        #user_label{list-style-type: none;}
+        #user_list {list-style-type: none;}
     </style>
     {% endblock %}
 
@@ -20,6 +24,8 @@
 <body>
 
 {% block body %}
+    <label id = "user_label"><b>Online</b></label>
+    <ul id = "user_list"></ul>
     <ul id="messages"></ul>
     <form action="">
         <input id="m" autocomplete="off"/><button>Send</button>
@@ -28,32 +34,81 @@
 {% block javascripts %}
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
+
+        $('#user_label').append($('#user_list'));
+
         //connecting to websocket...
         var conn = new WebSocket('ws://localhost:8080');
         var user = '{{ app.user.username }}';
         console.log(conn);
         conn.onopen = function(e) {
             console.log("Connection established!");
-            conn.send(user + ' has logged in!');
+            // $('#user_list').append($('<li>').text(user));
+            conn.send(JSON.stringify({command: "connect", user: user}));
+            conn.send(user + ' has entered the room!');
         };
         conn.onclose = function (e) {
-            conn.send(user + ' has logged out')
+            //$('#user_list').remove($('<li>').text(user));
+            conn.send(JSON.stringify({command: "disconnect", user: user}));
+            conn.send(user + ' has left the room');
+
         }
 
         conn.onmessage = function(e) {
             console.log(e.data);
-            $('#messages').append($('<li>').text(e.data));
+
+            //if statement for differentiating
+            // b/t chat message and 'who's online' list
+            //if json ,append to list, else send as message
+            if (isJSON(e.data)){
+                $('#user_list').empty();
+                console.log("data is array!");
+                var usersOnline = JSON.parse(e.data);
+                console.log(usersOnline);
+                for (var k in usersOnline) {
+                    console.log(k + " " + usersOnline[k]);
+                    $('#user_list').append($('<li>').text(usersOnline[k]));
+                }
+            }
+            else {
+
+                $('#messages').append($('<li>').text(e.data));
+            }
         };
+
+        // function to submit message to chat room
         $(function () {
             $('form').submit(function() {
-                conn.send(user + ': ' + $('#m').val());
-                $('#messages').append($('<li>').text(user + ': ' + $('#m').val()));
+                var msg = user + ': ' + $('#m').val();
+                conn.send(msg);
+                $('#messages').append($('<li>').text(msg));
                 window.scrollTo(0, document.body.scrollHeight);
                 $('#m').val('');
+                //sendMessage(msg);
                 return false;
-
             });
         });
+
+        function subscribe(channel) {
+            conn.send(JSON.stringify({command: "subscribe", channel: channel}));
+        }
+
+        function sendMessage(msg) {
+            conn.send(JSON.stringify({command: "message", message: msg}));
+        }
+
+        function isJSON(json)
+        {
+            var str = json.toString();
+            try {
+                JSON.parse(str);
+            }
+            catch (e) {
+                return false;
+            }
+            return true;
+        }
+
     </script>
 {% endblock %}
 </body>

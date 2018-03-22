@@ -24,9 +24,11 @@ class ChatSocket implements MessageComponentInterface {
 
     protected $clients;
     private $em;
-
     /** @var  ContainerInterface $container */
     private $container;
+    private $subscriptions;
+    private $users;
+    private $online;
 
 
 
@@ -35,13 +37,17 @@ class ChatSocket implements MessageComponentInterface {
         $this->clients = new \SplObjectStorage;
         $this->em = $em;
         $this->container = $container;
-
+        $this->subscriptions = [];
+        $this->users = [];
+        $this->online = [];
     }
 
     public function onOpen(ConnectionInterface $conn) {
         // Store the new connection to send messages to later
         $this->clients->attach($conn);
         echo "connection ({$conn->resourceId}) has logged in!\n";
+        $this->users[$conn->resourceId] = $conn;
+
     }
 
     public function onMessage(ConnectionInterface $from, $msg) {
@@ -50,24 +56,69 @@ class ChatSocket implements MessageComponentInterface {
        echo sprintf('Connection %d sending message "%s" to %d other connection%s' . "\n"
             , $from->resourceId, $msg, $numRecv, $numRecv == 1 ? '' : 's');
 
-
         foreach ($this->clients as $client) {
             if ($from !== $client) {
                 // The sender is not the receiver, send to each client connected
                 $client->send($msg);
             }
         }
+
+        //converts stdClass arr to assoc arr
+         $data = json_decode($msg,true);
+
+         print_r($data);
+        switch ($data['command']) {
+            case "subscribe":
+                $this->subscriptions[$from->resourceId] = $data->channel;
+                break;
+            case "message":
+                if (isset($this->subscriptions[$conn->resourceId])) {
+                    $target = $this->subscriptions[$from->resourceId];
+                    foreach ($this->subscriptions as $id=>$channel) {
+                        if ($channel == $target && $id != $from->resourceId) {
+                            $this->users[$id]->send($data->message);
+                        }
+                    }
+                }
+                foreach ($this->clients as $client) {
+                    if ($from !== $client) {
+                        echo "message test";
+                        // The sender is not the receiver, send to each client connected
+                        $client->send($msg);
+                    }
+                }
+                break;
+            case "connect":
+                    $this->online[$from->resourceId] = $data['user'];
+                foreach ($this->clients as $client) {
+                    print_r($this->online);
+                    $client->send(json_encode($this->online));
+                }
+                break;
+        }
     }
 
     public function onClose(ConnectionInterface $conn) {
         // The connection is closed, remove it, as we can no longer send it messages
         $this->clients->detach($conn);
+        unset($this->users[$conn->resourceId]);
+        unset($this->subscriptions[$conn->resourceId]);
+
+        // sends a message to every client that user has disconnected
+        foreach ($this->clients as $client)
+                $client->send($this->online[$conn->resourceId]. " has left the room");
+
+        unset($this->online[$conn->resourceId]);
+        foreach ($this->clients as $client) {
+            print_r($this->online);
+            $client->send(json_encode($this->online));
+        }
+
         echo "Connection {$conn->resourceId} has disconnected\n";
     }
 
     public function onError(ConnectionInterface $conn, \Exception $e) {
-        echo "An error has occurred: {$e->getMessage()}\n";
-
+        echo "\n***An error has occurred: {$e->getMessage()} line ".$e->getLine()."***\n";
         $conn->close();
     }
 

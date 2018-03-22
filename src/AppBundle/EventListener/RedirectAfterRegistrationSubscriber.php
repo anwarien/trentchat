@@ -36,7 +36,7 @@ class RedirectAfterRegistrationSubscriber implements EventSubscriberInterface
         $url = $this->getTargetPath($event->getRequest()->getSession(),'main');
 
         if (!$url) {
-            $url = $this->router->generate('hompeage');
+            $url = $this->router->generate('homepage');
         }
 
         $url = $this->router->generate('homepage');

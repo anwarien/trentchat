@@ -22,7 +22,7 @@ class ServerCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('chat:server')
+            ->setName('chat:socket')
             ->setDescription('Start the chat socket');
     }
 
