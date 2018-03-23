@@ -75,11 +75,11 @@ class ChatSocket implements MessageComponentInterface {
                     }
                 }
                 foreach ($this->clients as $client) {
-                    if ($from !== $client) {
+                    // The sender is not the receiver, send to each client connected
+                    // if ($from !== $client) {
                         echo "message test";
-                        // The sender is not the receiver, send to each client connected
                         $client->send($msg);
-                    }
+                    //}
                 }
                 break;
             case "connect":

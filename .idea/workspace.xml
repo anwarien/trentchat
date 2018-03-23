@@ -31,7 +31,7 @@
     <favorites_list name="trentchat" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.49194413">
+    <splitter split-orientation="horizontal" split-proportion="0.4650913">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file leaf-file-name="ChatController.php" pinned="false" current-in-tab="false">
@@ -47,8 +47,8 @@
           <file leaf-file-name="chat.html.twig" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="139">
-                  <caret line="58" column="37" lean-forward="false" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
+                <state relative-caret-position="171">
+                  <caret line="9" column="58" lean-forward="false" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
                   <folding />
                 </state>
               </provider>
@@ -61,8 +61,8 @@
           <file leaf-file-name="ChatSocket.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="78">
-                  <caret line="82" column="17" lean-forward="false" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
+                <state relative-caret-position="819">
+                  <caret line="67" column="27" lean-forward="false" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -127,8 +127,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/EventListener/OnlineListener.php" />
         <option value="$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" />
       </list>
     </option>
   </component>
@@ -234,7 +234,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -309,6 +308,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -418,7 +418,7 @@
       <workItem from="1521147469536" duration="3411000" />
       <workItem from="1521734490105" duration="9899000" />
       <workItem from="1521755026347" duration="2727000" />
-      <workItem from="1521817438413" duration="9383000" />
+      <workItem from="1521817438413" duration="12122000" />
     </task>
     <task id="LOCAL-00001" summary="created basic twig file and controller">
       <created>1509978040596</created>
@@ -539,11 +539,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521754932306</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="using JSON format for messages about user connecting/disconnecting">
+      <created>1521834265473</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1521834265473</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265152000" />
+    <option name="totallyTimeSpent" value="267891000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -603,7 +610,8 @@
     <MESSAGE value="messages are displayed in chat room from different clients" />
     <MESSAGE value="user 'logout' message sent on disconnection" />
     <MESSAGE value="added user disconnect feature; user leaves and is removed from list of users online" />
-    <option name="LAST_COMMIT_MESSAGE" value="added user disconnect feature; user leaves and is removed from list of users online" />
+    <MESSAGE value="using JSON format for messages about user connecting/disconnecting" />
+    <option name="LAST_COMMIT_MESSAGE" value="using JSON format for messages about user connecting/disconnecting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -942,21 +950,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="13335" column="4" lean-forward="false" selection-start-line="13335" selection-start-column="4" selection-end-line="13335" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="58" column="37" lean-forward="false" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="82" column="17" lean-forward="false" selection-start-line="82" selection-start-column="17" selection-end-line="82" selection-end-column="17" />
+        <state relative-caret-position="819">
+          <caret line="67" column="27" lean-forward="false" selection-start-line="67" selection-start-column="27" selection-end-line="67" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="58" lean-forward="false" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
           <folding />
         </state>
       </provider>
