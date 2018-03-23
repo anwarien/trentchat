@@ -48,6 +48,7 @@ class ChatSocket implements MessageComponentInterface {
         echo "connection ({$conn->resourceId}) has logged in!\n";
         $this->users[$conn->resourceId] = $conn;
 
+
     }
 
     public function onMessage(ConnectionInterface $from, $msg) {
@@ -55,13 +56,6 @@ class ChatSocket implements MessageComponentInterface {
 
        echo sprintf('Connection %d sending message "%s" to %d other connection%s' . "\n"
             , $from->resourceId, $msg, $numRecv, $numRecv == 1 ? '' : 's');
-
-        foreach ($this->clients as $client) {
-            if ($from !== $client) {
-                // The sender is not the receiver, send to each client connected
-                $client->send($msg);
-            }
-        }
 
         //converts stdClass arr to assoc arr
          $data = json_decode($msg,true);
@@ -72,7 +66,7 @@ class ChatSocket implements MessageComponentInterface {
                 $this->subscriptions[$from->resourceId] = $data->channel;
                 break;
             case "message":
-                if (isset($this->subscriptions[$conn->resourceId])) {
+                if (isset($this->subscriptions[$from->resourceId])) {
                     $target = $this->subscriptions[$from->resourceId];
                     foreach ($this->subscriptions as $id=>$channel) {
                         if ($channel == $target && $id != $from->resourceId) {
@@ -93,21 +87,26 @@ class ChatSocket implements MessageComponentInterface {
                 foreach ($this->clients as $client) {
                     print_r($this->online);
                     $client->send(json_encode($this->online));
+                    //convert 'user is online' messages to 'message' json
+                    $client->send(json_encode(array("command"=>"message",
+                        "message"=>$this->online[$from->resourceId]. " has joined the room!")));
                 }
                 break;
         }
     }
 
-    public function onClose(ConnectionInterface $conn) {
+    public function onClose(ConnectionInterface $conn)
+    {
         // The connection is closed, remove it, as we can no longer send it messages
         $this->clients->detach($conn);
         unset($this->users[$conn->resourceId]);
         unset($this->subscriptions[$conn->resourceId]);
 
         // sends a message to every client that user has disconnected
-        foreach ($this->clients as $client)
-                $client->send($this->online[$conn->resourceId]. " has left the room");
-
+        foreach ($this->clients as $client) {
+            $client->send(json_encode(array("command"=>"message",
+                "message"=>$this->online[$conn->resourceId]. " has left the room")));
+        }
         unset($this->online[$conn->resourceId]);
         foreach ($this->clients as $client) {
             print_r($this->online);

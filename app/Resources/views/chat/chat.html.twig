@@ -45,35 +45,34 @@
             console.log("Connection established!");
             // $('#user_list').append($('<li>').text(user));
             conn.send(JSON.stringify({command: "connect", user: user}));
-            conn.send(user + ' has entered the room!');
+            //conn.send(user + ' has entered the room!');
         };
         conn.onclose = function (e) {
             //$('#user_list').remove($('<li>').text(user));
             conn.send(JSON.stringify({command: "disconnect", user: user}));
-            conn.send(user + ' has left the room');
-
-        }
+            //conn.send(user + ' has left the room');
+        };
 
         conn.onmessage = function(e) {
             console.log(e.data);
-
-            //if statement for differentiating
-            // b/t chat message and 'who's online' list
-            //if json ,append to list, else send as message
-            if (isJSON(e.data)){
-                $('#user_list').empty();
-                console.log("data is array!");
-                var usersOnline = JSON.parse(e.data);
-                console.log(usersOnline);
-                for (var k in usersOnline) {
-                    console.log(k + " " + usersOnline[k]);
-                    $('#user_list').append($('<li>').text(usersOnline[k]));
-                }
+            var json = JSON.parse(e.data);
+            switch(json['command']) {
+                case "message":
+                    //$('#messages').append($('<li>').text(e.data));
+                    $('#messages').append($('<li>').text(json['message']));
+                    break;
+                default:
+                    $('#user_list').empty();
+                    console.log("data is array!");
+                    var usersOnline = JSON.parse(e.data);
+                    console.log(usersOnline);
+                    for (var k in usersOnline) {
+                        console.log(k + " " + usersOnline[k]);
+                        $('#user_list').append($('<li>').text(usersOnline[k]));
+                    }
+                    break;
             }
-            else {
 
-                $('#messages').append($('<li>').text(e.data));
-            }
         };
 
         // function to submit message to chat room
@@ -84,7 +83,7 @@
                 $('#messages').append($('<li>').text(msg));
                 window.scrollTo(0, document.body.scrollHeight);
                 $('#m').val('');
-                //sendMessage(msg);
+               sendMessage(msg);
                 return false;
             });
         });
