@@ -58,11 +58,8 @@
             var json = JSON.parse(e.data);
             switch(json['command']) {
                 case "message":
-                    //$('#messages').append($('<li>').text(e.data));
-
-                    if ("user"in json) {
+                    if ("user"in json)
                         $('#messages').append($('<li>').text( json['user']+json['message']));
-                    }
                     else $('#messages').append($('<li>').text(json['message']));
                     break;
                 default:
@@ -78,7 +75,6 @@
             }
 
         };
-
         // function to submit message to chat room
         $(function () {
             $('form').submit(function() {

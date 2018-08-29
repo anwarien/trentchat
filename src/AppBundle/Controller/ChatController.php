@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Entity\Room;
 use AppBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -39,7 +40,16 @@ class ChatController extends Controller
         $em->persist($user);
         $em->flush();
 
+
         return new Response('<html><body>User '.$username .' created!</body></html>');
+    }
+
+    /**
+     * @Route("/chat/newroom", name="newroom")
+     */
+    public function createRoomAction() {
+        $room = new Room();
+
     }
 
     /**
@@ -50,7 +60,6 @@ class ChatController extends Controller
         $em = $this->getDoctrine()->getManager();
         //$users = $em->getRepository('AppBundle:User')->findAllVerified();
         $users = $em->getRepository('AppBundle:User')->findAll();
-
 
         return $this->render('chat/list.html.twig', [
             'users' => $users,
@@ -90,11 +99,11 @@ class ChatController extends Controller
     }
 
     /**
-     * @Route("/chat/room")
+     * @Route("/chat/room/{chatroom}", name="chatroom")
      */
-    public function showAction() {
+    public function showAction($chatroom) {
 
-        $chatroom = "TEST_ROOM";
+        //$chatroom = "TEST_ROOM";
         $template = $this->container->get('templating');
         $html = $template->render('chat/chat.html.twig',
             ['chat'=> $chatroom]);

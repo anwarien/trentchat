@@ -47,8 +47,6 @@ class ChatSocket implements MessageComponentInterface {
         $this->clients->attach($conn);
         echo "connection ({$conn->resourceId}) has logged in!\n";
         $this->users[$conn->resourceId] = $conn;
-
-
     }
 
     public function onMessage(ConnectionInterface $from, $msg) {
@@ -60,7 +58,7 @@ class ChatSocket implements MessageComponentInterface {
         //converts stdClass arr to assoc arr
          $data = json_decode($msg,true);
 
-         print_r($data);
+         //print_r($data);
         switch ($data['command']) {
             case "subscribe":
                 $this->subscriptions[$from->resourceId] = $data->channel;
@@ -77,7 +75,6 @@ class ChatSocket implements MessageComponentInterface {
                 foreach ($this->clients as $client) {
                     // The sender is not the receiver, send to each client connected
                     // if ($from !== $client) {
-                        echo "message test";
                         $client->send($msg);
                     //}
                 }
