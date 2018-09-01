@@ -33,13 +33,18 @@ class ChatController extends Controller
      */
     public function createUserAction() {
 
+        /*
+         * Takes user input and uses it to create a registered user
+         * check if username exists
+         * if email exists
+         * if password and confirm password equal
+         * */
         $user = new User();
         $username= 'user'.rand(1,100);
         $user->setUserName($username);
         $em = $this->getDoctrine()->getManager();
         $em->persist($user);
         $em->flush();
-
 
         return new Response('<html><body>User '.$username .' created!</body></html>');
     }
@@ -103,7 +108,7 @@ class ChatController extends Controller
      */
     public function showAction($chatroom) {
 
-        //$chatroom = "TEST_ROOM";
+        $chatroom = "TEST_ROOM";
         $template = $this->container->get('templating');
         $html = $template->render('chat/chat.html.twig',
             ['chat'=> $chatroom]);
