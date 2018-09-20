@@ -16,6 +16,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
 class ChatController extends Controller
@@ -38,7 +41,7 @@ class ChatController extends Controller
          * check if username exists
          * if email exists
          * if password and confirm password equal
-         * */
+         */
         $user = new User();
         $username= 'user'.rand(1,100);
         $user->setUserName($username);
@@ -53,8 +56,20 @@ class ChatController extends Controller
      * @Route("/chat/newroom", name="newroom")
      */
     public function createRoomAction() {
-        $room = new Room();
 
+        $room = new Room();
+//        $room->setRoomName();
+//        $em = $this->getDoctrine()->getManager();
+//        $em->persist();
+//        $em->flush();
+        $form = $this->createFormBuilder($room)
+            ->add('roomName', TextType::class)
+            ->add('save',SubmitType::class, array('label'=>'Submit'))
+            ->getForm();
+
+        return $this->render('chat/newroom.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 
     /**
@@ -70,6 +85,24 @@ class ChatController extends Controller
             'users' => $users,
             ]);
     }
+
+    /**
+     * @Route("/chat/rooms", name="roomlist")
+     */
+    public function showRoomListAction() {
+
+        //displays list of chatrooms to go to
+
+        $em = $this->getDoctrine()->getManager();
+        //$users = $em->getRepository('AppBundle:User')->findAllVerified();
+        $rooms = $em->getRepository('AppBundle:Room')->findAll();
+
+        return $this->render('chat/roomlist.html.twig', [
+            'rooms' => $rooms,
+        ]);
+
+    }
+
 
     /**
      * @Route("/profiles/{username}", name="profilepage")
@@ -103,11 +136,15 @@ class ChatController extends Controller
 
     }
 
+
+
     /**
      * @Route("/chat/room/{chatroom}", name="chatroom")
      */
     public function showAction($chatroom) {
 
+
+        // TODO if $chatroom is empty, go to a page with list of available rooms
         $chatroom = "TEST_ROOM";
         $template = $this->container->get('templating');
         $html = $template->render('chat/chat.html.twig',

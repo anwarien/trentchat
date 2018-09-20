@@ -1,0 +1,26 @@
+{% extends 'base.html.twig'%}
+
+{#TODO: should show list of rooms available to join#}
+{% block body %}
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Users</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>
+                    <a href="{{ path('profilepage', {
+                        'username': user.userName
+                    }) }}">{{ user.userName}}</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <h1>Rooms</h1>
+{% endblock %}
