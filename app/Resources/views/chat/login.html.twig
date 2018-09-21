@@ -6,6 +6,7 @@
 
     {% if is_granted('ROLE_USER') %}
         {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+        <ul><h4><a href="{{path('roomlist')}}">Rooms</a></h4></ul>
         <ul><h4><a href="{{path('fos_user_security_logout')}}">Logout</a></h4></ul>
         {% else %}
             {% endif %}
