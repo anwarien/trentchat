@@ -38,14 +38,17 @@
         $('#user_label').append($('#user_list'));
 
         //connecting to websocket...
-        var roomName = {{ chat }}
-        var conn = new WebSocket('ws://localhost:8080/'+roomName);
+        var roomName = '{{ chat }}';
+        //var conn = new WebSocket('ws://localhost:8080/'+roomName);
+        var conn = new WebSocket('ws://localhost:8080/');
         var user = '{{ app.user.username }}';
         console.log(conn);
         conn.onopen = function(e) {
             console.log("Connection established!");
             // $('#user_list').append($('<li>').text(user));
             conn.send(JSON.stringify({command: "connect", user: user}));
+            console.log("tfdjaklfjds");
+            subscribe( conn,roomName);
             //conn.send(user + ' has entered the room!');
         };
         conn.onclose = function (e) {
@@ -89,7 +92,8 @@
             });
         });
 
-        function subscribe(channel) {
+        function subscribe(conn,channel) {
+            console.log("Subscribed to " + channel);
             conn.send(JSON.stringify({command: "subscribe", channel: channel}));
         }
 

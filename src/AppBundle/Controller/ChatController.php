@@ -157,7 +157,6 @@ class ChatController extends Controller
     public function showAction($chatroom = "TEST_ROOM") {
 
 
-        // TODO if $chatroom is empty, go to a page with list of available rooms
         $em = $this->getDoctrine()->getManager();
         $room= $em->getRepository('AppBundle:Room')->findBy(array('roomName'=>$chatroom));
         if (!$room) return new Response('<html><body><h1>Room does not exist</h1></body></html>');
@@ -170,6 +169,10 @@ class ChatController extends Controller
         return new Response($html);
     }
 
+
+    private function createWebSocket() {
+
+    }
 
     /**
      * @Route("/admin",name="admin")
