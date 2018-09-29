@@ -38,7 +38,8 @@
         $('#user_label').append($('#user_list'));
 
         //connecting to websocket...
-        var conn = new WebSocket('ws://localhost:8080');
+        var roomName = {{ chat }}
+        var conn = new WebSocket('ws://localhost:8080/'+roomName);
         var user = '{{ app.user.username }}';
         console.log(conn);
         conn.onopen = function(e) {

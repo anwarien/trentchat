@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ffe60950-85ca-4d2c-9c49-d96c2398bddf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/chat/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/chat/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,17 +35,45 @@
       <file leaf-file-name="ChatController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+            <state relative-caret-position="249">
+              <caret line="160" selection-start-line="160" selection-end-line="160" />
+              <folding>
+                <element signature="e#125#151#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register_content.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig">
+      <file leaf-file-name="ChatSocket.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="42" selection-start-column="42" selection-end-column="42" />
+            <state relative-caret-position="435">
+              <caret line="80" column="22" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
+              <folding>
+                <element signature="e#6#90#0#PHP" expanded="true" />
+                <element signature="e#125#156#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerCommand.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ServerCommand.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+              <folding>
+                <element signature="e#122#157#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="16" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -72,8 +99,17 @@
       <file leaf-file-name="list.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/list.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="29" selection-start-column="29" selection-end-column="29" />
+            <state relative-caret-position="195">
+              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chat.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="720">
+              <caret line="48" column="48" selection-start-line="48" selection-end-line="49" />
             </state>
           </provider>
         </entry>
@@ -87,15 +123,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -105,20 +132,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newroom.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/newroom.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>button</find>
       <find>&lt;h4&gt;&lt;a href=&quot;{{path('fos_user_security_login') }}&quot;&gt;Login&lt;/a&gt; &lt;/h4&gt;</find>
       <find>onopen</find>
       <find>$em</find>
@@ -148,6 +165,7 @@
       <find>$task</find>
       <find>register</find>
       <find>roomlist</find>
+      <find>room/</find>
     </findStrings>
     <replaceStrings>
       <replace>ocwen_backfill_july2014_e</replace>
@@ -183,7 +201,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Command/ServerCommand.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/EventListener/OnlineListener.php" />
         <option value="$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/chat/list.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Room.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php" />
@@ -198,6 +215,7 @@
         <option value="$PROJECT_DIR$/app/Resources/views/chat/newroom.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/chat/login.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" />
       </list>
     </option>
@@ -284,9 +302,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1939" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -306,6 +325,12 @@
               <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
               <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
@@ -368,7 +393,21 @@
               <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Command" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="WebSocket" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
@@ -530,7 +569,15 @@
       <workItem from="1537318166177" duration="1203000" />
       <workItem from="1537463989578" duration="601000" />
       <workItem from="1537483314231" duration="3062000" />
-      <workItem from="1537503617271" duration="2874000" />
+      <workItem from="1537503617271" duration="3092000" />
+      <workItem from="1537644489819" duration="612000" />
+      <workItem from="1537645374463" duration="2024000" />
+      <workItem from="1537845292628" duration="668000" />
+      <workItem from="1537920194330" duration="1767000" />
+      <workItem from="1537996011915" duration="2396000" />
+      <workItem from="1538086319443" duration="1574000" />
+      <workItem from="1538165246457" duration="1808000" />
+      <workItem from="1538246807478" duration="716000" />
     </task>
     <task id="LOCAL-00001" summary="created basic twig file and controller">
       <created>1509978040596</created>
@@ -686,11 +733,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537486088730</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="user can create room entity; entity stored in the database">
+      <created>1537507553394</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1537507553394</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="334450000" />
+    <option name="totallyTimeSpent" value="346233000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -705,17 +759,16 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18053691" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.13851352" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5021482" side_tool="true" weight="0.30444697" />
+      <window_info anchor="right" id="Database" order="3" weight="0.14607948" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.333713" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49785176" weight="0.18693693" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20402685" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" weight="0.14607948" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49785176" weight="0.18693693" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -725,6 +778,7 @@
       <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32905984" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -756,7 +810,8 @@
     <MESSAGE value="created 'create user' page" />
     <MESSAGE value="added additional labels to createuser" />
     <MESSAGE value="created 'create chat room' form" />
-    <option name="LAST_COMMIT_MESSAGE" value="created 'create chat room' form" />
+    <MESSAGE value="user can create room entity; entity stored in the database" />
+    <option name="LAST_COMMIT_MESSAGE" value="user can create room entity; entity stored in the database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -764,6 +819,17 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="74" column="53" selection-start-line="74" selection-start-column="53" selection-end-line="74" selection-end-column="53" />
+          <folding>
+            <element signature="e#6#90#0#PHP" expanded="true" />
+            <element signature="e#125#156#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Csrf/CsrfToken.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -922,13 +988,6 @@
     </entry>
     <entry file="file://$USER_HOME$/Desktop/ocwen_backfill_july2014_e.xml" />
     <entry file="file://$USER_HOME$/Desktop/ocwen_backfill_july2014_d.xml" />
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ServerCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -966,21 +1025,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="88" column="96" selection-start-line="88" selection-start-column="96" selection-end-line="88" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/createuser.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="44" selection-start-line="6" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/profile.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -989,16 +1034,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Services/CreateRoom.php" />
-    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="16" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
+        <state relative-caret-position="630">
           <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
         </state>
       </provider>
@@ -1010,27 +1048,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/list.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="29" selection-start-column="29" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="38" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Room.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1048,6 +1069,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Room.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -1062,10 +1090,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="48" column="48" selection-start-line="48" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="80" column="22" selection-start-line="80" selection-start-column="22" selection-end-line="80" selection-end-column="22" />
+          <folding>
+            <element signature="e#6#90#0#PHP" expanded="true" />
+            <element signature="e#125#156#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ServerCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+          <folding>
+            <element signature="e#122#157#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        <state relative-caret-position="249">
+          <caret line="160" selection-start-line="160" selection-end-line="160" />
+          <folding>
+            <element signature="e#125#151#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
