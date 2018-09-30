@@ -58,7 +58,7 @@ class ChatSocket implements MessageComponentInterface {
         //converts stdClass arr to assoc arr
          $data = json_decode($msg,true);
 
-         print_r($data);
+         //print_r($data);
         switch ($data['command']) {
             case "subscribe":
                 $this->subscriptions[$from->resourceId] = $data['channel'];
@@ -67,30 +67,24 @@ class ChatSocket implements MessageComponentInterface {
                 if (isset($this->subscriptions[$from->resourceId])) {
                     $target = $this->subscriptions[$from->resourceId];
                     foreach ($this->subscriptions as $id=>$channel) {
-                        if ($channel == $target ) {
-                            //$this->users[$id]->send($data['message']);
+                        if ($channel == $target) {
                             $this->users[$id]->send($msg);
-
-
                         }
                     }
                 }
-                //foreach ($this->clients as $client) {
-                    // The sender is not the receiver, send to each client connected
-                    // if ($from !== $client) {
-                    // $client->send($msg);
-                    //}
-                    //$client->send($msg);
-                //}
                 break;
             case "connect":
-                    $this->online[$from->resourceId] = $data['user'];
-                foreach ($this->clients as $client) {
-                    print_r($this->online);
-                    $client->send(json_encode($this->online));
-                    //convert 'user is online' messages to 'message' json
-                    $client->send(json_encode(array("command"=>"message",
-                        "message"=>$this->online[$from->resourceId]. " has joined the room!")));
+                $this->online[$from->resourceId] = $data['user'];
+                if (isset($this->subscriptions[$from->resourceId])) {
+                    $target = $this->subscriptions[$from->resourceId];
+                    foreach ($this->subscriptions as $id=>$channel) {
+                        if ($channel == $target) {
+                            $this->users[$id]->send(json_encode($this->online));
+                            //convert 'user is online' messages to 'message' json
+                            $this->users[$id]->send(json_encode(array("command"=>"message",
+                                "message"=>$this->online[$from->resourceId]. " has joined the room!")));
+                        }
+                    }
                 }
                 break;
         }

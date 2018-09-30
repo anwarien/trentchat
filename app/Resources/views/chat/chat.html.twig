@@ -46,9 +46,8 @@
         conn.onopen = function(e) {
             console.log("Connection established!");
             // $('#user_list').append($('<li>').text(user));
+            subscribe(conn,roomName);
             conn.send(JSON.stringify({command: "connect", user: user}));
-            console.log("tfdjaklfjds");
-            subscribe( conn,roomName);
             //conn.send(user + ' has entered the room!');
         };
         conn.onclose = function (e) {
