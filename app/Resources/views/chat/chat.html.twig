@@ -65,15 +65,24 @@
                         $('#messages').append($('<li>').text( json['user']+json['message']));
                     else $('#messages').append($('<li>').text(json['message']));
                     break;
-                default:
+                case "online":
                     $('#user_list').empty();
                     console.log("data is array!");
-                    var usersOnline = JSON.parse(e.data);
-                    console.log(usersOnline);
+                    var usersOnline = json['list'];
+                    console.log("Users online: " + usersOnline);
                     for (var k in usersOnline) {
-                        console.log(k + " " + usersOnline[k]);
-                        $('#user_list').append($('<li>').text(usersOnline[k]));
+                        //console.log(k + " " + usersOnline[k]);
+                        $('#user_list').append($('<li>').text(usersOnline));
                     }
+                default:
+                    // $('#user_list').empty();
+                    // console.log("data is array!");
+                    // var usersOnline = JSON.parse(e.data);
+                    // console.log("Users online: " + usersOnline);
+                    // for (var k in usersOnline) {
+                    //     //console.log(k + " " + usersOnline[k]);
+                    //     $('#user_list').append($('<li>').text(usersOnline[k]));
+                    // }
                     break;
             }
 

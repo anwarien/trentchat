@@ -28,7 +28,7 @@ class ChatSocket implements MessageComponentInterface {
     private $container;
     private $subscriptions;
     private $users;
-    private $online;
+    private $online =  [];
 
 
 
@@ -39,7 +39,6 @@ class ChatSocket implements MessageComponentInterface {
         $this->container = $container;
         $this->subscriptions = [];
         $this->users = [];
-        $this->online = [];
     }
 
     public function onOpen(ConnectionInterface $conn) {
@@ -74,15 +73,30 @@ class ChatSocket implements MessageComponentInterface {
                 }
                 break;
             case "connect":
-                $this->online[$from->resourceId] = $data['user'];
                 if (isset($this->subscriptions[$from->resourceId])) {
+                    //target is the chatroom you want to send msg to
                     $target = $this->subscriptions[$from->resourceId];
                     foreach ($this->subscriptions as $id=>$channel) {
                         if ($channel == $target) {
-                            $this->users[$id]->send(json_encode($this->online));
+                            // creating key array for room and adding user to key
+                            // else, just add user to key
+                            if (!array_key_exists($channel,$this->online)){
+                                // create key, add user to key
+                                //if room has special chars in it
+                                $this->online[$channel] = array();
+
+                                array_push($this->online[$channel], $data['user']);
+                            }
+                            else {
+                                array_push($this->online[$channel], $data['user']);
+                            }
+                            //$this->users[$id]->send(json_encode($this->online[$this->subscriptions[$from->resourceId]]));
+                            $this->users[$id]->send(json_encode(array("command"=>"online",
+                                "list"=>$this->online[$channel])));
+                            echo "\n JSON BEING SENT AS ONLINE LIST" . json_encode($this->online[$channel]) . "\n";
                             //convert 'user is online' messages to 'message' json
                             $this->users[$id]->send(json_encode(array("command"=>"message",
-                                "message"=>$this->online[$from->resourceId]. " has joined the room!")));
+                                "message"=>$data['user'] . " has joined the room!")));
                         }
                     }
                 }
@@ -94,14 +108,31 @@ class ChatSocket implements MessageComponentInterface {
     {
         // The connection is closed, remove it, as we can no longer send it messages
         $this->clients->detach($conn);
-        unset($this->users[$conn->resourceId]);
-        unset($this->subscriptions[$conn->resourceId]);
+
 
         // sends a message to every client that user has disconnected
         foreach ($this->clients as $client) {
             $client->send(json_encode(array("command"=>"message",
                 "message"=>$this->online[$conn->resourceId]. " has left the room")));
         }
+        if (isset($this->subscriptions[$conn->resourceId])) {
+            $target = $this->subscriptions[$conn->resourceId];
+            foreach ($this->subscriptions as $id=>$channel) {
+                if ($channel == $target) {
+                    $this->users[$id]->send(json_encode($this->online[$this->subscriptions[$conn->resourceId]]));
+                    //convert 'user is online' messages to 'message' json
+                    $this->users[$id]->send(json_encode(array("command"=>"message",
+                        "message"=>$this->online[$this->subscriptions[$conn->resourceId]]. " has left the room")));
+                    unset($this->online[$this->subscriptions[$conn->resourceId]]);
+                    unset($this->subscriptions[$conn->resourceId]);
+                    unset($this->users[$conn->resourceId]);
+                    print_r($this->subscriptions);
+                }
+            }
+        }
+
+
+
         unset($this->online[$conn->resourceId]);
         foreach ($this->clients as $client) {
             print_r($this->online);
