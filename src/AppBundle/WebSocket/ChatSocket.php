@@ -80,20 +80,21 @@ class ChatSocket implements MessageComponentInterface {
                         if ($channel == $target) {
                             // creating key array for room and adding user to key
                             // else, just add user to key
-                            if (!array_key_exists($channel,$this->online)){
-                                // create key, add user to key
+                            if (!array_key_exists($channel,$this->online)) {
+                                //create key, add user to key
                                 //if room has special chars in it
                                 $this->online[$channel] = array();
-
-                                array_push($this->online[$channel], $data['user']);
+                                array_push($this->online[$channel], array('id'=>$from->resourceId ,'user' => $data['user']));
                             }
                             else {
-                                array_push($this->online[$channel], $data['user']);
+                                // TODO work on adding users to online list with resourceID attached to make it easier to disconnect
+                                echo "Pushing user ". $data['user'] . " to online list\n";
+                                array_push($this->online[$channel], array('id'=>$from->resourceId ,'user' => $data['user']));
                             }
-                            //$this->users[$id]->send(json_encode($this->online[$this->subscriptions[$from->resourceId]]));
+
                             $this->users[$id]->send(json_encode(array("command"=>"online",
                                 "list"=>$this->online[$channel])));
-                            echo "\n JSON BEING SENT AS ONLINE LIST" . json_encode($this->online[$channel]) . "\n";
+                            echo "\n ***JSON BEING SENT AS ONLINE LIST:" . json_encode($this->online[$channel]) . "***\n";
                             //convert 'user is online' messages to 'message' json
                             $this->users[$id]->send(json_encode(array("command"=>"message",
                                 "message"=>$data['user'] . " has joined the room!")));
@@ -119,20 +120,17 @@ class ChatSocket implements MessageComponentInterface {
             $target = $this->subscriptions[$conn->resourceId];
             foreach ($this->subscriptions as $id=>$channel) {
                 if ($channel == $target) {
-                    $this->users[$id]->send(json_encode($this->online[$this->subscriptions[$conn->resourceId]]));
+                    $this->users[$id]->send(json_encode($this->online[$channel]));
                     //convert 'user is online' messages to 'message' json
                     $this->users[$id]->send(json_encode(array("command"=>"message",
-                        "message"=>$this->online[$this->subscriptions[$conn->resourceId]]. " has left the room")));
-                    unset($this->online[$this->subscriptions[$conn->resourceId]]);
+                        "message"=>$this->online[$channel]. " has left the room")));
+                    unset($this->online[$channel]);
                     unset($this->subscriptions[$conn->resourceId]);
                     unset($this->users[$conn->resourceId]);
                     print_r($this->subscriptions);
                 }
             }
         }
-
-
-
         unset($this->online[$conn->resourceId]);
         foreach ($this->clients as $client) {
             print_r($this->online);

@@ -70,9 +70,16 @@
                     console.log("data is array!");
                     var usersOnline = json['list'];
                     console.log("Users online: " + usersOnline);
+                    // usersOnline.forEach(function(u) {
+                    //     var userArr = JSON.stringify(u)
+                    //     console.log(userArr.user)
+                    //     $('#user_list').append($('<li>').text(JSON.stringify(JSON.parse(userArr.user))));
+                    // });
                     for (var k in usersOnline) {
-                        //console.log(k + " " + usersOnline[k]);
-                        $('#user_list').append($('<li>').text(usersOnline));
+                        //console.log(k + " " + );
+                        var str = JSON.stringify(usersOnline[k]);
+                        var str2 = JSON.parse(str);
+                        $('#user_list').append($('<li>').text(str2.user));
                     }
                 default:
                     // $('#user_list').empty();
