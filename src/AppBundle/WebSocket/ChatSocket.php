@@ -84,14 +84,15 @@ class ChatSocket implements MessageComponentInterface {
                                 //create key, add user to key
                                 //if room has special chars in it
                                 $this->online[$channel] = array();
-                                array_push($this->online[$channel], array('id'=>$from->resourceId ,'user' => $data['user']));
+                                //array_push($this->online[$channel], array('id'=>$from->resourceId ,'user' => $data['user']));
+                                $this->online[$channel][$from->resourceId] = array('id'=>$from->resourceId,'user'=>$data['user']);
                             }
                             else {
-                                // TODO work on adding users to online list with resourceID attached to make it easier to disconnect
                                 echo "Pushing user ". $data['user'] . " to online list\n";
-                                array_push($this->online[$channel], array('id'=>$from->resourceId ,'user' => $data['user']));
-                            }
+                                //array_push($this->online[$channel], array('id'=>$from->resourceId ,'user' => $data['user']));
+                                $this->online[$channel][$from->resourceId] = array('id'=>$from->resourceId,'user'=>$data['user']);
 
+                            }
                             $this->users[$id]->send(json_encode(array("command"=>"online",
                                 "list"=>$this->online[$channel])));
                             echo "\n ***JSON BEING SENT AS ONLINE LIST:" . json_encode($this->online[$channel]) . "***\n";
@@ -109,28 +110,40 @@ class ChatSocket implements MessageComponentInterface {
     {
         // The connection is closed, remove it, as we can no longer send it messages
         $this->clients->detach($conn);
-
+        echo "client $conn->resourceId detatched\n";
 
         // sends a message to every client that user has disconnected
-        foreach ($this->clients as $client) {
-            $client->send(json_encode(array("command"=>"message",
-                "message"=>$this->online[$conn->resourceId]. " has left the room")));
-        }
+//        foreach ($this->clients as $client) {
+//            $client->send(json_encode(array("command"=>"message",
+//                "message"=>$this->online[$conn->resourceId]. " has left the room")));
+//        }
+        // TODO remove user based on rID
+        echo "\nsubscription array: ".$this->subscriptions[$conn->resourceId];
         if (isset($this->subscriptions[$conn->resourceId])) {
+            echo "isset condition reached";
             $target = $this->subscriptions[$conn->resourceId];
             foreach ($this->subscriptions as $id=>$channel) {
+                echo "\nChannel: $channel";
+                echo "\nTarget: $target";
                 if ($channel == $target) {
-                    $this->users[$id]->send(json_encode($this->online[$channel]));
-                    //convert 'user is online' messages to 'message' json
+                    echo "\n***USER  IS BEING REMOVED***\n";
                     $this->users[$id]->send(json_encode(array("command"=>"message",
-                        "message"=>$this->online[$channel]. " has left the room")));
-                    unset($this->online[$channel]);
+                        "message"=>$this->online[$channel][$conn->resourceId]['user']. " has left the room")));
+                    unset($this->online[$channel][$conn->resourceId]);
+                    print_r($this->online[$channel]);
+                    $this->users[$id]->send(json_encode(array("command"=>"online",
+                        "list"=>$this->online[$channel])));
+                    //convert 'user is online' messages to 'message' json
+
+                    //unset($this->subscriptions[$conn->resourceId]);
+                    //unset($this->users[$conn->resourceId]);
+                    echo "channel list:\n";
                     unset($this->subscriptions[$conn->resourceId]);
-                    unset($this->users[$conn->resourceId]);
                     print_r($this->subscriptions);
                 }
             }
         }
+        else "isset condition not reached\n";
         unset($this->online[$conn->resourceId]);
         foreach ($this->clients as $client) {
             print_r($this->online);
@@ -139,11 +152,8 @@ class ChatSocket implements MessageComponentInterface {
 
         echo "Connection {$conn->resourceId} has disconnected\n";
     }
-
     public function onError(ConnectionInterface $conn, \Exception $e) {
         echo "\n***An error has occurred: {$e->getMessage()} line ".$e->getLine()."***\n";
         $conn->close();
     }
-
-
 }

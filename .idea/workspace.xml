@@ -41,23 +41,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chat.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="81" column="105" selection-start-line="81" selection-start-column="105" selection-end-line="81" selection-end-column="105" />
+            <state relative-caret-position="1050">
+              <caret line="70" column="50" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="50" />
               <folding>
-                <marker date="1540503404838" expanded="true" signature="3327:3537" ph="..." />
+                <marker date="1540669692548" expanded="true" signature="3020:3358" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChatSocket.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ChatSocket.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="71" column="21" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
+            <state relative-caret-position="579">
+              <caret line="140" column="67" selection-start-line="140" selection-start-column="67" selection-end-line="140" selection-end-column="67" />
               <folding>
                 <element signature="e#6#90#0#PHP" expanded="true" />
                 <element signature="e#125#156#0#PHP" expanded="true" />
@@ -69,7 +69,7 @@
       <file leaf-file-name="ServerCommand.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ServerCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
+            <state relative-caret-position="360">
               <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
               <folding>
                 <element signature="e#122#157#0#PHP" expanded="true" />
@@ -170,8 +170,8 @@
         <option value="$PROJECT_DIR$/app/Resources/views/chat/login.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php" />
       </list>
     </option>
   </component>
@@ -469,7 +469,9 @@
       <workItem from="1540055106830" duration="2380000" />
       <workItem from="1540149539271" duration="1629000" />
       <workItem from="1540232908580" duration="10487000" />
-      <workItem from="1540493550213" duration="9845000" />
+      <workItem from="1540493550213" duration="11232000" />
+      <workItem from="1540663820189" duration="12467000" />
+      <workItem from="1540842866402" duration="2291000" />
     </task>
     <task id="LOCAL-00001" summary="created basic twig file and controller">
       <created>1509978040596</created>
@@ -660,11 +662,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540241821157</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="changed json format of online array;">
+      <created>1540503590210</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1540503590211</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="402299000" />
+    <option name="totallyTimeSpent" value="418444000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -679,7 +688,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21006711" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21543624" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.13851352" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5021482" side_tool="true" weight="0.30444697" />
@@ -708,7 +717,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added twig blocks to chat.html.twig" />
     <MESSAGE value="added basic chat functionality to chat.html.twig; added new DoctrineCacheBundle" />
     <MESSAGE value="added User entity and Doctrine Database Migrations Bundle; added list twig file" />
     <MESSAGE value="added User entity and Doctrine Database Migrations Bundle;" />
@@ -733,7 +741,8 @@
     <MESSAGE value="rooms no longer received user sent messages from other rooms" />
     <MESSAGE value="Fixed 'joining room' message" />
     <MESSAGE value="redid online array in onMessage event" />
-    <option name="LAST_COMMIT_MESSAGE" value="redid online array in onMessage event" />
+    <MESSAGE value="changed json format of online array;" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed json format of online array;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -743,8 +752,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="81" column="56" lean-forward="true" selection-start-line="81" selection-start-column="56" selection-end-line="81" selection-end-column="56" />
+        <state relative-caret-position="1725">
+          <caret line="127" column="42" lean-forward="true" selection-start-line="127" selection-start-column="42" selection-end-line="127" selection-end-column="42" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
             <element signature="e#125#156#0#PHP" expanded="true" />
@@ -1035,7 +1044,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ServerCommand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
+        <state relative-caret-position="360">
           <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
           <folding>
             <element signature="e#122#157#0#PHP" expanded="true" />
@@ -1043,23 +1052,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="71" column="21" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
+        <state relative-caret-position="1050">
+          <caret line="70" column="50" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="50" />
           <folding>
-            <element signature="e#6#90#0#PHP" expanded="true" />
-            <element signature="e#125#156#0#PHP" expanded="true" />
+            <marker date="1540669692548" expanded="true" signature="3020:3358" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="81" column="105" selection-start-line="81" selection-start-column="105" selection-end-line="81" selection-end-column="105" />
+        <state relative-caret-position="579">
+          <caret line="140" column="67" selection-start-line="140" selection-start-column="67" selection-end-line="140" selection-end-column="67" />
           <folding>
-            <marker date="1540503404838" expanded="true" signature="3327:3537" ph="..." />
+            <element signature="e#6#90#0#PHP" expanded="true" />
+            <element signature="e#125#156#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
