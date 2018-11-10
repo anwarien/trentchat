@@ -111,16 +111,7 @@
             conn.send(JSON.stringify({command: "message",user:user,message: msg}));
         }
 
-        function isJSON(json) {
-            var str = json.toString();
-            try {
-                JSON.parse(str);
-            }
-            catch (e) {
-                return false;
-            }
-            return true;
-        }
+
     </script>
 {% endblock %}
 </body>

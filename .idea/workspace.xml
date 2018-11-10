@@ -4,7 +4,6 @@
     <list default="true" id="ffe60950-85ca-4d2c-9c49-d96c2398bddf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,23 +40,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chat.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1050">
-              <caret line="70" column="50" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="50" />
+            <state relative-caret-position="477">
+              <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
               <folding>
-                <marker date="1540669692548" expanded="true" signature="3020:3358" ph="..." />
+                <marker date="1541885008960" expanded="true" signature="3020:3358" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChatSocket.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChatSocket.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="579">
-              <caret line="140" column="67" selection-start-line="140" selection-start-column="67" selection-end-line="140" selection-end-column="67" />
+            <state relative-caret-position="1305">
+              <caret line="87" column="56" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
               <folding>
                 <element signature="e#6#90#0#PHP" expanded="true" />
                 <element signature="e#125#156#0#PHP" expanded="true" />
@@ -170,8 +169,8 @@
         <option value="$PROJECT_DIR$/app/Resources/views/chat/login.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" />
       </list>
     </option>
   </component>
@@ -471,7 +470,9 @@
       <workItem from="1540232908580" duration="10487000" />
       <workItem from="1540493550213" duration="11232000" />
       <workItem from="1540663820189" duration="12467000" />
-      <workItem from="1540842866402" duration="2291000" />
+      <workItem from="1540842866402" duration="2935000" />
+      <workItem from="1541875399244" duration="656000" />
+      <workItem from="1541884773969" duration="235000" />
     </task>
     <task id="LOCAL-00001" summary="created basic twig file and controller">
       <created>1509978040596</created>
@@ -669,11 +670,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540503590211</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="fixed online list">
+      <created>1540845822213</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1540845822213</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="418444000" />
+    <option name="totallyTimeSpent" value="419744000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -688,7 +696,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21543624" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22147651" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.13851352" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5021482" side_tool="true" weight="0.30444697" />
@@ -717,7 +725,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added basic chat functionality to chat.html.twig; added new DoctrineCacheBundle" />
     <MESSAGE value="added User entity and Doctrine Database Migrations Bundle; added list twig file" />
     <MESSAGE value="added User entity and Doctrine Database Migrations Bundle;" />
     <MESSAGE value="update profile page; added datafixturesbundle; made changes to User entity;" />
@@ -742,7 +749,8 @@
     <MESSAGE value="Fixed 'joining room' message" />
     <MESSAGE value="redid online array in onMessage event" />
     <MESSAGE value="changed json format of online array;" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed json format of online array;" />
+    <MESSAGE value="fixed online list" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed online list" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1052,23 +1060,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="70" column="50" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="50" />
+        <state relative-caret-position="1305">
+          <caret line="87" column="56" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
           <folding>
-            <marker date="1540669692548" expanded="true" signature="3020:3358" ph="..." />
+            <element signature="e#6#90#0#PHP" expanded="true" />
+            <element signature="e#125#156#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="140" column="67" selection-start-line="140" selection-start-column="67" selection-end-line="140" selection-end-column="67" />
+        <state relative-caret-position="477">
+          <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
           <folding>
-            <element signature="e#6#90#0#PHP" expanded="true" />
-            <element signature="e#125#156#0#PHP" expanded="true" />
+            <marker date="1541885008960" expanded="true" signature="3020:3358" ph="..." />
           </folding>
         </state>
       </provider>
