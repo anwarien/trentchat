@@ -34,13 +34,12 @@
 {% block javascripts %}
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-
         $('#user_label').append($('#user_list'));
-
         //connecting to websocket...
         var roomName = '{{ chat }}';
         //var conn = new WebSocket('ws://localhost:8080/'+roomName);
-        var conn = new WebSocket('ws://localhost:8080/');
+        //var conn = new WebSocket('ws://localhost:8080/');
+        var conn = new WebSocket('{{ web_socket }}');
         var user = '{{ app.user.username }}';
         console.log(conn);
         conn.onopen = function(e) {
@@ -55,14 +54,13 @@
             conn.send(JSON.stringify({command: "disconnect", user: user}));
             //conn.send(user + ' has left the room');
         };
-
         conn.onmessage = function(e) {
             console.log(e.data);
             var json = JSON.parse(e.data);
             switch(json['command']) {
                 case "message":
                     if ("user"in json)
-                        $('#messages').append($('<li>').text( json['user']+json['message']));
+                        $('#messages').append($('<li>').text(json['user']+json['message']));
                     else $('#messages').append($('<li>').text(json['message']));
                     break;
                 case "online":
@@ -77,17 +75,8 @@
                         $('#user_list').append($('<li>').text(str2.user));
                     }
                 default:
-                    // $('#user_list').empty();
-                    // console.log("data is array!");
-                    // var usersOnline = JSON.parse(e.data);
-                    // console.log("Users online: " + usersOnline);
-                    // for (var k in usersOnline) {
-                    //     //console.log(k + " " + usersOnline[k]);
-                    //     $('#user_list').append($('<li>').text(usersOnline[k]));
-                    // }
                     break;
             }
-
         };
         // function to submit message to chat room
         $(function () {
@@ -101,17 +90,26 @@
                 return false;
             });
         });
-
         function subscribe(conn,channel) {
             console.log("Subscribed to " + channel);
             conn.send(JSON.stringify({command: "subscribe", channel: channel}));
         }
-
         function sendMessage(msg) {
             conn.send(JSON.stringify({command: "message",user:user,message: msg}));
         }
 
+        // returns a string that gives a time and date for when a message reaches the chat room
+        // keep different timezones in mind
+        // time will stored as UTC, but will be displayed differently based on timezone setting
+        // Use ISO Date Format
+        function timeStamp() {
 
+            var currentDate = new Date();
+            var date = currentDate.getDate();
+            var month = currentDate.getMonth();
+            var year = currentDate.getFullYear();
+
+        }
     </script>
 {% endblock %}
 </body>
