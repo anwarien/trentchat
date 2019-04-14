@@ -18,11 +18,41 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Room
 {
+
+    private static $PUBLIC = 0;
+    private static $PRIVATE = 2;
+    private static $INVITE = 1;
+
+
+
     /**
      * @ORM\Id
      * @ORM\Column(type="string")
      */
     private $roomName;
+
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="int", nullable = false)
+     */
+    private $roomType;
+
+    /**
+     * @return mixed
+     */
+    public function getRoomType()
+    {
+        return $this->roomType;
+    }
+
+    /**
+     * @param mixed $roomType
+     */
+    public function setRoomType($roomType)
+    {
+        $this->roomType = $roomType;
+    }
 
     /**
      * @return string
