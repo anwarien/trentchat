@@ -34,9 +34,32 @@ class Room
 
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer", nullable = false)
+     * @ORM\Column(type="integer")
      */
     private $roomType;
+
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="string")
+     */
+    private $roomRole;
+
+    /**
+     * @return mixed
+     */
+    public function getRoomRole()
+    {
+        return $this->roomRole;
+    }
+
+    /**
+     * @param mixed $roomRole
+     */
+    public function setRoomRole($roomRole)
+    {
+        $this->roomRole = $roomRole;
+    }
 
     /**
      * @return mixed
