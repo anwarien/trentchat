@@ -20,8 +20,7 @@ class Room
 {
 
     private static $PUBLIC = 0;
-    private static $PRIVATE = 2;
-    private static $INVITE = 1;
+    private static $PRIVATE = 1;
 
 
 
