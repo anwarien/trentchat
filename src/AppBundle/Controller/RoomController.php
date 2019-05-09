@@ -9,9 +9,87 @@
 namespace AppBundle\Controller;
 
 
-use Symfony\Component\HttpKernel\Tests\Controller;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Validator\Constraints\Choice;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use AppBundle\Entity\Room;
+use RandomLib\Factory;
+use SecurityLib;
 
 class RoomController extends Controller
 {
 
+
+
+    /**
+     * @Route("/chat/createroom", name="createroom")
+     */
+    public function createRoomAction(Request $request) {
+
+        $room = new Room();
+
+        $form = $this->createFormBuilder($room)
+            ->add('roomName', TextType::class)
+            ->add('roomType',ChoiceType::class,[
+                'choices'=> [
+                    'Public' => 0,
+                    'Private'=> 1,
+                ]
+            ])
+            ->add('save',SubmitType::class, array('label'=>'Submit'))
+            ->getForm();
+
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // $form->getData() holds the submitted values
+            // but, the original `$room` variable has also been updated
+            $room = $form->getData();
+            dump($room);
+            // TODO generate random role if room is private
+            if ($room->getRoomType() == 1) {
+
+            $factory = new Factory();
+            $generator = $factory->getGenerator(new SecurityLib\Strength(SecurityLib\Strength::MEDIUM));
+            $roomRole = $generator->generateString(5);
+            $room->setRoomRole('ROLE_' . $roomRole);
+        }
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($room);
+            $em->flush();
+
+            return $this->redirectToRoute('roomlist');
+        }
+
+
+        return $this->render('chat/createroom.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+
+
+
+    /**
+     * @Route("/chat/rooms", name="roomlist")
+     */
+    public function showRoomListAction() {
+
+        //displays list of chatrooms to go to
+
+        $em = $this->getDoctrine()->getManager();
+        //$users = $em->getRepository('AppBundle:User')->findAllVerified();
+        $rooms = $em->getRepository('AppBundle:Room')->findAll();
+
+        return $this->render('chat/roomlist.html.twig', [
+            'rooms' => $rooms,
+        ]);
+
+    }
 }
