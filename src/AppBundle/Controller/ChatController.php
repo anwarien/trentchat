@@ -50,7 +50,7 @@ class ChatController extends Controller
     /**
      * @Route("/chat/room/{chatroom}", name="chatroom")
      */
-    public function showAction($chatroom = "TEST_ROOM") {
+    public function showAction($chatroom) {
 
 
         $em = $this->getDoctrine()->getManager();

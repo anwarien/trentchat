@@ -32,6 +32,9 @@ class RoomController extends Controller
      */
     public function createRoomAction(Request $request) {
 
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $user = $this->getUser();
+
         $room = new Room();
 
         $form = $this->createFormBuilder($room)
@@ -52,14 +55,13 @@ class RoomController extends Controller
             // $form->getData() holds the submitted values
             // but, the original `$room` variable has also been updated
             $room = $form->getData();
-            dump($room);
-            // TODO generate random role if room is private
+            // if the room is private, generate a random role for the room
             if ($room->getRoomType() == 1) {
-
             $factory = new Factory();
             $generator = $factory->getGenerator(new SecurityLib\Strength(SecurityLib\Strength::MEDIUM));
             $roomRole = $generator->generateString(5);
             $room->setRoomRole('ROLE_' . $roomRole);
+            $user->addRole('ROLE_'.$roomRole);
         }
             $em = $this->getDoctrine()->getManager();
             $em->persist($room);
