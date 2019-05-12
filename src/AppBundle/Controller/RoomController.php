@@ -59,9 +59,9 @@ class RoomController extends Controller
             if ($room->getRoomType() == 1) {
             $factory = new Factory();
             $generator = $factory->getGenerator(new SecurityLib\Strength(SecurityLib\Strength::MEDIUM));
-            $roomRole = $generator->generateString(5);
-            $room->setRoomRole('ROLE_' . $roomRole);
-            $user->addRole('ROLE_'.$roomRole);
+            $roomRole = 'ROLE_'.strtoupper($generator->generateString(5));
+            $room->setRoomRole($roomRole);
+            $user->addRole($roomRole);
         }
             $em = $this->getDoctrine()->getManager();
             $em->persist($room);

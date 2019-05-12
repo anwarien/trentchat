@@ -1,6 +1,5 @@
 {% extends 'base.html.twig'%}
 
-{#TODO: If user has permission to join private room, display room#}
 {#TODO: What if rooms generate same role?#}
 {% block body %}
     <h1>Rooms</h1>
@@ -17,7 +16,11 @@
                     {% if room.roomRole == null %}
                     <a href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>
                     {% else %}
-                        <a onclick="roleCheck('{{ room.roomRole }}')" href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>     <label><b>Private</b></label>
+                        {% if room.roomRole  in app.user.roles %}
+                            <a href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>     <label><b>Private</b></label>
+                        {% else %}
+                            <a onclick="alert('{{ room.roomRole }} {{ app.user.roles|join(', ') }}' )" >{{ room.RoomRole}}</a>     <label><b>Private</b></label>
+                        {% endif %}
                     {% endif %}
                 </td>
             </tr>
@@ -33,7 +36,7 @@
                 alert("allowed to enter room");
             }
             else {
-                alert("not allowed");
+                alert("You are not allowed to enter this room");
             }
 
         }
