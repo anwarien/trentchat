@@ -19,7 +19,7 @@
                         {% if room.roomRole  in app.user.roles %}
                             <a href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>     <label><b>Private</b></label>
                         {% else %}
-                            <a onclick="alert('{{ room.roomRole }} {{ app.user.roles|join(', ') }}' )" >{{ room.RoomRole}}</a>     <label><b>Private</b></label>
+                            <a onclick="alert('{{ room.roomRole }} {{ app.user.roles|join(', ') }}' )" >{{ room.RoomName}}</a>     <label><b>Private</b></label>
                         {% endif %}
                     {% endif %}
                 </td>

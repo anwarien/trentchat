@@ -86,7 +86,7 @@
                 //$('#messages').append($('<li>').text(msg));
                 window.scrollTo(0, document.body.scrollHeight);
                 $('#m').val('');
-               sendMessage(msg);
+               sendMessage(msg + " " + timeStamp());
                 return false;
             });
         });
@@ -98,17 +98,9 @@
             conn.send(JSON.stringify({command: "message",user:user,message: msg}));
         }
 
-        // returns a string that gives a time and date for when a message reaches the chat room
-        // keep different timezones in mind
-        // time will stored as UTC, but will be displayed differently based on timezone setting
-        // Use ISO Date Format
         function timeStamp() {
-
             var currentDate = new Date();
-            var date = currentDate.getDate();
-            var month = currentDate.getMonth();
-            var year = currentDate.getFullYear();
-
+            return currentDate.getHours()  + ":"+ currentDate.getMinutes();
         }
     </script>
 {% endblock %}
