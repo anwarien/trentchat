@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ffe60950-85ca-4d2c-9c49-d96c2398bddf" name="Default" comment="">
+    <list default="true" id="ffe60950-85ca-4d2c-9c49-d96c2398bddf" name="Default" comment="added timestamp to chat messages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" afterDir="false" />
     </list>
@@ -40,20 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/login.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="roomlist.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
+            <state relative-caret-position="315">
+              <caret line="21" column="120" selection-start-line="21" selection-start-column="120" selection-end-line="21" selection-end-column="120" />
             </state>
           </provider>
         </entry>
@@ -61,8 +52,8 @@
       <file leaf-file-name="chat.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="100" column="30" lean-forward="true" selection-start-line="100" selection-start-column="30" selection-end-line="100" selection-end-column="30" />
+            <state relative-caret-position="345">
+              <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -70,8 +61,8 @@
       <file leaf-file-name="RoomController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="660">
+              <caret line="60" column="104" selection-start-line="60" selection-start-column="104" selection-end-line="60" selection-end-column="104" />
             </state>
           </provider>
         </entry>
@@ -79,7 +70,7 @@
       <file leaf-file-name="Room.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Room.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="285">
               <caret line="24" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
@@ -88,26 +79,8 @@
       <file leaf-file-name="ChatSocket.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-996">
+            <state>
               <caret column="5" selection-start-column="5" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginFormAuthenticator.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Security/LoginFormAuthenticator.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="79" column="40" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="security.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -124,14 +97,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="login.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/login.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="63" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>roomlist</find>
-      <find>room/</find>
-      <find>channel</find>
-      <find>online</find>
       <find>isjson</find>
       <find>database</find>
       <find>forbid</find>
@@ -158,6 +136,10 @@
       <find>newroom</find>
       <find>%username%</find>
       <find>fos_user_se</find>
+      <find>timestamp</find>
+      <find>#user_label</find>
+      <find>#user_list</find>
+      <find>user_list</find>
     </findStrings>
     <replaceStrings>
       <replace>ocwen_backfill_july2014_e</replace>
@@ -211,8 +193,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/chat/createroom.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/chat/login.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" />
       </list>
@@ -304,9 +286,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="40" />
-    <option name="y" value="-15" />
-    <option name="width" value="1940" />
+    <option name="x" value="-110" />
+    <option name="y" value="-8" />
+    <option name="width" value="1944" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -315,6 +297,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -397,7 +380,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -635,7 +617,15 @@
       <workItem from="1557944374252" duration="3000" />
       <workItem from="1558102943446" duration="28000" />
       <workItem from="1558200264413" duration="4951000" />
-      <workItem from="1558295417197" duration="1828000" />
+      <workItem from="1558295417197" duration="2597000" />
+      <workItem from="1558366138623" duration="644000" />
+      <workItem from="1558465722581" duration="221000" />
+      <workItem from="1558897443099" duration="2646000" />
+      <workItem from="1559412861585" duration="10850000" />
+      <workItem from="1559499404589" duration="11024000" />
+      <workItem from="1559688055264" duration="1085000" />
+      <workItem from="1559768287762" duration="1326000" />
+      <workItem from="1559934609319" duration="1945000" />
     </task>
     <task id="LOCAL-00001" summary="created basic twig file and controller">
       <created>1509978040596</created>
@@ -924,11 +914,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557637373168</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="added timestamp to chat messages">
+      <created>1558297395501</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1558297395501</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="538166000" />
+    <option name="totallyTimeSpent" value="568676000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -940,13 +937,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24362417" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18230277" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.13851352" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5021482" side_tool="true" weight="0.30444697" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="7" sideWeight="0.5021482" side_tool="true" visible="true" weight="0.21023965" />
       <window_info anchor="right" id="Database" order="3" weight="0.14607948" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.333713" />
@@ -994,7 +991,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="user 'logout' message sent on disconnection" />
     <MESSAGE value="added user disconnect feature; user leaves and is removed from list of users online" />
     <MESSAGE value="using JSON format for messages about user connecting/disconnecting" />
     <MESSAGE value="separated username from string and put into key value format in 'message' json" />
@@ -1019,7 +1015,8 @@
     <MESSAGE value="Created Room and User Controllers; added private room variable;" />
     <MESSAGE value="created random role generator for private rooms" />
     <MESSAGE value="if else for private rooms" />
-    <option name="LAST_COMMIT_MESSAGE" value="if else for private rooms" />
+    <MESSAGE value="added timestamp to chat messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="added timestamp to chat messages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1273,13 +1270,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1245">
@@ -1297,45 +1287,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="37" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="61" selection-start-line="29" selection-start-column="61" selection-end-line="29" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Room.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="285">
           <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-996">
+        <state>
           <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="60" column="104" selection-start-line="60" selection-start-column="104" selection-end-line="60" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/login.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="63" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="120" selection-start-line="21" selection-start-column="120" selection-end-line="21" selection-end-column="120" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="100" column="30" lean-forward="true" selection-start-line="100" selection-start-column="30" selection-end-line="100" selection-end-column="30" />
+        <state relative-caret-position="345">
+          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
         </state>
       </provider>
     </entry>

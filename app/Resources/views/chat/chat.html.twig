@@ -8,11 +8,19 @@
         body { font: 13px Helvetica, Arial; }
         label {  background: #FFF;  padding: 3px;  text-align: center;  position: fixed;
             bottom: 0;  right:0;  top: 0;  width: 10%;  border:1px solid gray;  }
+        timestamp  {
+            text-align: left;
+            font-size: 12px;
+            color: #999;
+            float: right;
+        }
         form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
         form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
         form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
         #messages { list-style-type: none; margin: 0; padding: 0; }
-        #messages li { padding: 5px 10px; }
+        #messages li { padding: 5px 10px;
+            width: 90%;
+        }
         #messages li:nth-child(odd) { background: #eee; }
         #messages { margin-bottom: 40px }
         #user_label{list-style-type: none;}
@@ -26,7 +34,8 @@
 {% block body %}
     <label id = "user_label"><b>Online</b></label>
     <ul id = "user_list"></ul>
-    <ul id="messages"></ul>
+    <div id="messages"></div>
+    <div id="time_stamp"></div>
     <form action="">
         <input id="m" autocomplete="off"/><button>Send</button>
         <a href="{{ path('notes') }}">JSON DATA</a>
@@ -37,8 +46,6 @@
         $('#user_label').append($('#user_list'));
         //connecting to websocket...
         var roomName = '{{ chat }}';
-        //var conn = new WebSocket('ws://localhost:8080/'+roomName);
-        //var conn = new WebSocket('ws://localhost:8080/');
         var conn = new WebSocket('{{ web_socket }}');
         var user = '{{ app.user.username }}';
         console.log(conn);
@@ -59,9 +66,12 @@
             var json = JSON.parse(e.data);
             switch(json['command']) {
                 case "message":
-                    if ("user"in json)
-                        $('#messages').append($('<li>').text(json['user']+json['message']));
-                    else $('#messages').append($('<li>').text(json['message']));
+                    if ("user"in json) {
+                        createMessage(json['user']+json['message']);
+                    }
+                    else {
+                        createMessage(json['message']);
+                    }
                     break;
                 case "online":
                     $('#user_list').empty();
@@ -86,7 +96,7 @@
                 //$('#messages').append($('<li>').text(msg));
                 window.scrollTo(0, document.body.scrollHeight);
                 $('#m').val('');
-               sendMessage(msg + " " + timeStamp());
+               sendMessage(msg);
                 return false;
             });
         });
@@ -97,7 +107,11 @@
         function sendMessage(msg) {
             conn.send(JSON.stringify({command: "message",user:user,message: msg}));
         }
-
+        // creates message for interface
+        function createMessage(msg) {
+            $('#messages').append($('<li>').text((msg)).append($("<timestamp></timestamp>").append(timeStamp())));
+        }
+        // TODO: 2:03 = 2:3 on interface. Fix This
         function timeStamp() {
             var currentDate = new Date();
             return currentDate.getHours()  + ":"+ currentDate.getMinutes();
