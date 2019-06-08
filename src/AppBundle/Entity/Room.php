@@ -22,8 +22,6 @@ class Room
     private static $PUBLIC = 0;
     private static $PRIVATE = 1;
 
-
-
     /**
      * @ORM\Id
      * @ORM\Column(type="string")
