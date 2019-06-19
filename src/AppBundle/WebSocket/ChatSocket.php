@@ -68,6 +68,9 @@ class ChatSocket implements MessageComponentInterface {
                     foreach ($this->subscriptions as $id=>$channel) {
                         if ($channel == $target) {
                             $this->users[$id]->send($msg);
+                            echo "MESSAGE: ".$msg."\n";
+                            echo "TARGET: ".$target."\n";
+
                         }
                     }
                 }
