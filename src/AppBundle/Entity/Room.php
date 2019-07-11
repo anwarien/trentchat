@@ -9,35 +9,39 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use AppBundle\Entity;
 /**
  * Class Room
  * @ORM\Entity
  * @ORM\Table(name="room")
  */
-
 class Room
 {
 
     private static $PUBLIC = 0;
     private static $PRIVATE = 1;
 
+
     /**
      * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
      * @ORM\Column(type="string")
      */
     private $roomName;
 
 
     /**
-     * @ORM\Id
      * @ORM\Column(type="integer")
      */
     private $roomType;
 
 
     /**
-     * @ORM\Id
      * @ORM\Column(type="string")
      */
     private $roomRole;
@@ -88,5 +92,13 @@ class Room
     public function setRoomName($roomName)
     {
         $this->roomName = $roomName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

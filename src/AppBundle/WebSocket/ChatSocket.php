@@ -17,6 +17,7 @@ use Ratchet\MessageComponentInterface;
 use AppBundle\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Services\MessageHandler;
 
 
 class ChatSocket implements MessageComponentInterface {
@@ -29,6 +30,7 @@ class ChatSocket implements MessageComponentInterface {
     private $subscriptions;
     private $users;
     private $online =  [];
+    private $messageHandler;
 
 
 
@@ -39,6 +41,7 @@ class ChatSocket implements MessageComponentInterface {
         $this->container = $container;
         $this->subscriptions = [];
         $this->users = [];
+        $this->messageHandler = $this->container->get('message.handler');
     }
 
     public function onOpen(ConnectionInterface $conn) {
@@ -70,6 +73,7 @@ class ChatSocket implements MessageComponentInterface {
                             $this->users[$id]->send($msg);
                             echo "MESSAGE: ".$msg."\n";
                             echo "TARGET: ".$target."\n";
+                            $this->messageHandler->storeMessage($msg);
 
                         }
                     }
@@ -156,7 +160,7 @@ class ChatSocket implements MessageComponentInterface {
         echo "Connection {$conn->resourceId} has disconnected\n";
     }
     public function onError(ConnectionInterface $conn, \Exception $e) {
-        echo "\n***An error has occurred: {$e->getMessage()} line ".$e->getLine()."***\n";
+        echo "AN ERROR HAS OCCURRED: {$e->getMessage()} LINE ".$e->getLine()."\n";
         $conn->close();
     }
 }

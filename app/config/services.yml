@@ -47,3 +47,7 @@ services:
         class: AppBundle\WebSocket\ChatSocket
         autowire: true
         public: true
+    message.handler:
+        class: AppBundle\Services\MessageHandler
+        autowire: true
+        public: true

@@ -9,26 +9,40 @@
 namespace AppBundle\Entity;
 
 
+use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity;
+use AppBundle\Entity\Room;
+/**
+ * Class Message
+ * @ORM\Entity
+ * @ORM\Table(name="message")
+ */
 class Message
 {
 
-    /**
-     * @OneToOne(targetEntity="Room",mappedBy="Message")
-     */
-    private $room;
 
     /**
-     * @Column(type="integer")
-    */
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     */
     private $id;
 
     /**
-     * @Column(type="string")
+     * @ORM\OneToOne(targetEntity="Room",mappedBy="Message")
+     * @ORM\Column(type="integer")
+     */
+    private $room;
+
+
+
+    /**
+     * @ORM\Column(type="string")
      */
     private $message;
 
     /**
-     * @Column(type="string")
+     * @ORM\Column(type="integer")
      */
     private $timeStamp;
 
@@ -53,4 +67,26 @@ class Message
     public function setTimeStamp($timeStamp) {
         $this->timeStamp = $timeStamp;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getRoom()
+    {
+        return $this->room;
+    }
+
+    /**
+     * @param mixed $room
+     */
+    public function setRoom($room)
+    {
+        $this->room = $room;
+    }
+
+    public function getId(){
+        return $this->id;
+    }
+
+
 }

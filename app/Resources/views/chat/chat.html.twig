@@ -45,6 +45,7 @@
         $('#user_label').append($('#user_list'));
         //connecting to websocket...
         var roomName = '{{ chat }}';
+        var roomId = '{{ id }}';
         var conn = new WebSocket('{{ web_socket }}');
         var user = '{{ app.user.username }}';
         console.log(conn);
@@ -104,7 +105,7 @@
             conn.send(JSON.stringify({command: "subscribe", channel: channel}));
         }
         function sendMessage(msg) {
-            conn.send(JSON.stringify({command: "message",user:user,message: msg}));
+            conn.send(JSON.stringify({command: "message",user:user,message: msg,roomId:roomId}));
         }
         // creates message for interface
         function createMessage(msg) {

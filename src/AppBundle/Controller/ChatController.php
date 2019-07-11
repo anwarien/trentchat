@@ -54,12 +54,11 @@ class ChatController extends Controller
 
 
         $em = $this->getDoctrine()->getManager();
-        $room= $em->getRepository('AppBundle:Room')->findBy(array('roomName'=>$chatroom));
+        $room = $em->getRepository('AppBundle:Room')->findBy(array('roomName'=>$chatroom));
         if (!$room) return new Response('<html><body><h1>Room does not exist</h1></body></html>');
-
         $template = $this->container->get('templating');
         $html = $template->render('chat/chat.html.twig',
-            ['chat'=> $chatroom]);
+            ['chat'=> $chatroom ,'id'=> $room[0]->getId()]);
         $cache = $this->get('doctrine_cache.providers.my_cache');
 
         return new Response($html);
