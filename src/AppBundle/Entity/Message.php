@@ -20,21 +20,22 @@ use AppBundle\Entity\Room;
 class Message
 {
 
-
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
     private $id;
-
     /**
-     * @ORM\OneToOne(targetEntity="Room",mappedBy="Message")
+     * @ORM\ManyToOne(targetEntity="Room",inversedBy="Message")
      * @ORM\Column(type="integer")
      */
     private $room;
 
-
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $userId;
 
     /**
      * @ORM\Column(type="string")
@@ -86,6 +87,23 @@ class Message
 
     public function getId(){
         return $this->id;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param mixed $userId
+     */
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
     }
 
 

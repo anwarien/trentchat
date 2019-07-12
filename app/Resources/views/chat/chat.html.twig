@@ -48,6 +48,7 @@
         var roomId = '{{ id }}';
         var conn = new WebSocket('{{ web_socket }}');
         var user = '{{ app.user.username }}';
+        var userId = '{{ app.user.id }}';
         console.log(conn);
         conn.onopen = function(e) {
             console.log("Connection established!");
@@ -105,7 +106,7 @@
             conn.send(JSON.stringify({command: "subscribe", channel: channel}));
         }
         function sendMessage(msg) {
-            conn.send(JSON.stringify({command: "message",user:user,message: msg,roomId:roomId}));
+            conn.send(JSON.stringify({command: "message",user:user,userId:userId,message: msg,roomId:roomId}));
         }
         // creates message for interface
         function createMessage(msg) {

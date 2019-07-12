@@ -30,16 +30,15 @@ class MessageHandler
             echo "storeMessage()\n";
         try {
             $em = $this->container->get('doctrine.orm.entity_manager');
-            $arr = json_decode($msgJson);
-            //print_r($arr);
+            $msgInfo = json_decode($msgJson);
+            //print_r($msgInfo);
             $message = new Message();
-            $message->setMessage($arr->message);
-            $room = $em->getRepository('AppBundle:Room')->findOneBy(array('id'=>$arr->roomId));
+            $message->setMessage($msgInfo->message);
+            $room = $em->getRepository('AppBundle:Room')->findOneBy(array('id'=>$msgInfo->roomId));
             //echo gettype($room);
             $message->setRoom($room->getId());
-            //create timestamp of when the message was created
+            $message->setUserId($msgInfo->userId);
             $dateTime = new DateTime();
-            //echo gettype($dateTime);
             $message->setTimeStamp($dateTime->format('m-d-Y H:i:s'));
             $em->persist($message);
             $em->flush();
