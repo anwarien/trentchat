@@ -40,10 +40,7 @@ class MessageHandler
             //create timestamp of when the message was created
             $dateTime = new DateTime();
             //echo gettype($dateTime);
-            $dateTime->setTime(20, 0);
-            $timestamp = $dateTime->getTimestamp();
-            $message->setTimeStamp($timestamp);
-
+            $message->setTimeStamp($dateTime->format('m-d-Y H:i:s'));
             $em->persist($message);
             $em->flush();
         }

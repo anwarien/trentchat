@@ -42,7 +42,7 @@ class Message
     private $message;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $timeStamp;
 
