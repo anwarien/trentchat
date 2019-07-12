@@ -71,10 +71,7 @@ class ChatSocket implements MessageComponentInterface {
                     foreach ($this->subscriptions as $id=>$channel) {
                         if ($channel == $target) {
                             $this->users[$id]->send($msg);
-                            echo "MESSAGE: ".$msg."\n";
-                            echo "TARGET: ".$target."\n";
                             $this->messageHandler->storeMessage($msg);
-
                         }
                     }
                 }
@@ -124,7 +121,7 @@ class ChatSocket implements MessageComponentInterface {
 //            $client->send(json_encode(array("command"=>"message",
 //                "message"=>$this->online[$conn->resourceId]. " has left the room")));
 //        }
-        // TODO remove user based on rID
+        // TODO remove user based on roomId
         echo "\nsubscription array: ".$this->subscriptions[$conn->resourceId];
         if (isset($this->subscriptions[$conn->resourceId])) {
             echo "isset condition reached";

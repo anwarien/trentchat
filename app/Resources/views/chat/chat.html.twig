@@ -52,10 +52,10 @@
         console.log(conn);
         conn.onopen = function(e) {
             console.log("Connection established!");
-            // $('#user_list').append($('<li>').text(user));
             subscribe(conn,roomName);
-            conn.send(JSON.stringify({command: "connect", user: user}));
-            //conn.send(user + ' has entered the room!');
+            conn.send(JSON.stringify({command: "connect", user: user, roomId: roomId}));
+            // load previous messages upon connection to room
+
         };
         conn.onclose = function (e) {
             //$('#user_list').remove($('<li>').text(user));

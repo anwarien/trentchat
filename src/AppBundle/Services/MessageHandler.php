@@ -16,8 +16,6 @@ use Psr\Container\ContainerInterface;
 
 class MessageHandler
 {
-
-
     /** @var ContainerInterface $container */
     private $container;
 
@@ -49,7 +47,15 @@ class MessageHandler
 
     }
 
-    public function loadMessages() {
+    public function loadMessages($roomId) {
+        // TODO only load last 20 messages for when rooms have a lot of messages
+        // User joins chat room
+        // Chat messages are loaded from room by room ID
+        // room ID needed for room
+        // use doctrine to load each message entity up
+        // convert timestamp to fit interface time format
+        // store in array
+        // return array to be used to interface
 
 
 
