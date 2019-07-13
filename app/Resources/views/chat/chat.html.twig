@@ -68,10 +68,10 @@
             switch(json['command']) {
                 case "message":
                     if ("user"in json) {
-                        createMessage(json['user']+json['message']);
+                        createMessage(json['user']+json['message'],false);
                     }
                     else {
-                        createMessage(json['message']);
+                        createMessage(json['message'],false);
                     }
                     break;
                 case "online":
@@ -84,6 +84,17 @@
                         var str = JSON.stringify(usersOnline[k]);
                         var str2 = JSON.parse(str);
                         $('#user_list').append($('<li>').text(str2.user));
+                    }
+                    break;
+                case "loadMessages":
+                    var messages = json['messages'];
+                    for (var m in messages) {
+                        var message = JSON.stringify(messages[m]['message']);
+                        message = message.replace(/["']/g, "");
+                        var time = JSON.stringify(messages[m]['timestamp']);
+                        time = time.replace(/["']/g, "");
+                        // console.log(msg + time);
+                        createMessage([message,time],true);
                     }
                 default:
                     break;
@@ -109,10 +120,16 @@
             conn.send(JSON.stringify({command: "message",user:user,userId:userId,message: msg,roomId:roomId}));
         }
         // creates message for interface
-        function createMessage(msg) {
-            $('#messages').append($('<li>').text((msg)).append($("<timestamp></timestamp>").append(timeStamp())));
+        function createMessage(msg,logMsg) {
+            if (!logMsg) {
+                $('#messages').append($('<li>').text((msg)).append($("<timestamp></timestamp>").append(timeStamp())));
+            }
+            else {
+                $('#messages').append($('<li>').text((msg[0])).append($("<timestamp></timestamp>").append(msg[1])));
+            }
+
         }
-        // TODO: 2:03 = 2:3 on interface. Fix This
+        //TODO : 2:03 = 2:3 on interface. Fix This
         function timeStamp() {
             var currentDate = new Date();
             return currentDate.getHours()  + ":"+ currentDate.getMinutes();

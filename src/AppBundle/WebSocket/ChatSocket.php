@@ -80,6 +80,11 @@ class ChatSocket implements MessageComponentInterface {
                 if (isset($this->subscriptions[$from->resourceId])) {
                     //target is the chatroom you want to send msg to
                     $target = $this->subscriptions[$from->resourceId];
+
+                    //load previous messages from chat room upon connecting
+                    $loadMsgJson =$this->messageHandler->loadMessages($msg);
+                    $this->users[$from->resourceId]->send($loadMsgJson);
+
                     foreach ($this->subscriptions as $id=>$channel) {
                         if ($channel == $target) {
                             // creating key array for room and adding user to key
@@ -95,7 +100,6 @@ class ChatSocket implements MessageComponentInterface {
                                 echo "Pushing user ". $data['user'] . " to online list\n";
                                 //array_push($this->online[$channel], array('id'=>$from->resourceId ,'user' => $data['user']));
                                 $this->online[$channel][$from->resourceId] = array('id'=>$from->resourceId,'user'=>$data['user']);
-
                             }
                             $this->users[$id]->send(json_encode(array("command"=>"online",
                                 "list"=>$this->online[$channel])));
