@@ -115,10 +115,7 @@ class ChatSocket implements MessageComponentInterface {
                                 'userId'=>$joinMsg->userId));
                             $this->users[$id]->send($joinRoomJson);
                             $joinMsg = json_decode($joinRoomJson);
-
                             $joinMsg->message = str_replace($data['user'],"", $messageStr);
-                            echo $joinMsg->message."\n";
-
                             $this->messageHandler->storeMessage(json_encode($joinMsg));
                         }
                     }
@@ -132,12 +129,6 @@ class ChatSocket implements MessageComponentInterface {
         // The connection is closed, remove it, as we can no longer send it messages
         $this->clients->detach($conn);
         echo "client $conn->resourceId detatched\n";
-
-        // sends a message to every client that user has disconnected
-//        foreach ($this->clients as $client) {
-//            $client->send(json_encode(array("command"=>"message",
-//                "message"=>$this->online[$conn->resourceId]. " has left the room")));
-//        }
         // TODO remove user based on roomId
         echo "\nsubscription array: ".$this->subscriptions[$conn->resourceId];
         if (isset($this->subscriptions[$conn->resourceId])) {

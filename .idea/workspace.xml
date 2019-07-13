@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ffe60950-85ca-4d2c-9c49-d96c2398bddf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Services/MessageHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Services/MessageHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,8 +44,8 @@
           <file leaf-file-name="ChatSocket.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="430">
-                  <caret line="121" column="64" selection-start-line="121" selection-start-column="64" selection-end-line="121" selection-end-column="64" />
+                <state relative-caret-position="460">
+                  <caret line="123" column="9" lean-forward="true" selection-start-line="123" selection-start-column="9" selection-end-line="123" selection-end-column="9" />
                   <folding>
                     <element signature="e#125#156#0#PHP" expanded="true" />
                   </folding>
@@ -579,14 +576,7 @@
       <workItem from="1562948306914" duration="7615000" />
       <workItem from="1562964349743" duration="3607000" />
       <workItem from="1562982472226" duration="6759000" />
-      <workItem from="1563029551820" duration="17357000" />
-    </task>
-    <task id="LOCAL-00004" summary="added basic chat functionality to chat.html.twig; added new DoctrineCacheBundle">
-      <created>1510259016720</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1510259016720</updated>
+      <workItem from="1563029551820" duration="17809000" />
     </task>
     <task id="LOCAL-00005" summary="added User entity and Doctrine Database Migrations Bundle; added list twig file">
       <created>1510337132831</created>
@@ -924,11 +914,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563041159919</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="&quot;joined the room&quot; message now stores in database">
+      <created>1563058138061</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1563058138061</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="693464000" />
+    <option name="totallyTimeSpent" value="693916000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -972,7 +969,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed json format of online array;" />
     <MESSAGE value="fixed online list" />
     <MESSAGE value="removed 'isJson' method" />
     <MESSAGE value="added global twig param" />
@@ -997,7 +993,8 @@
     <MESSAGE value="added user id column; changed relationship between message and room" />
     <MESSAGE value="added notes on loadMessages; deleted comments" />
     <MESSAGE value="loads messages from database" />
-    <option name="LAST_COMMIT_MESSAGE" value="loads messages from database" />
+    <MESSAGE value="&quot;joined the room&quot; message now stores in database" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;joined the room&quot; message now stores in database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1307,8 +1304,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="121" column="64" selection-start-line="121" selection-start-column="64" selection-end-line="121" selection-end-column="64" />
+        <state relative-caret-position="460">
+          <caret line="123" column="9" lean-forward="true" selection-start-line="123" selection-start-column="9" selection-end-line="123" selection-end-column="9" />
           <folding>
             <element signature="e#125#156#0#PHP" expanded="true" />
           </folding>
