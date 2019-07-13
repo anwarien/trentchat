@@ -105,8 +105,21 @@ class ChatSocket implements MessageComponentInterface {
                                 "list"=>$this->online[$channel])));
                             echo "\n ***JSON BEING SENT AS ONLINE LIST:" . json_encode($this->online[$channel]) . "***\n";
                             //convert 'user is online' messages to 'message' json
-                            $this->users[$id]->send(json_encode(array("command"=>"message",
-                                "message"=>$data['user'] . " has joined the room!")));
+//                            $this->users[$id]->send(json_encode(array("command"=>"message",
+//                                "message"=>$data['user'] . " has joined the room!")));
+                            $joinMsg = json_decode($msg);
+                            $messageStr = $data['user'] . " has joined the room!";
+                            $joinRoomJson = json_encode(array("command"=>"message",
+                                "message"=>$messageStr,
+                                'roomId'=>$joinMsg->roomId,
+                                'userId'=>$joinMsg->userId));
+                            $this->users[$id]->send($joinRoomJson);
+                            $joinMsg = json_decode($joinRoomJson);
+
+                            $joinMsg->message = str_replace($data['user'],"", $messageStr);
+                            echo $joinMsg->message."\n";
+
+                            $this->messageHandler->storeMessage(json_encode($joinMsg));
                         }
                     }
                 }

@@ -27,9 +27,10 @@ class MessageHandler
     public function storeMessage($msgJson) {
             echo "storeMessage()\n";
         try {
+
             $em = $this->container->get('doctrine.orm.entity_manager');
             $msgInfo = json_decode($msgJson);
-            //print_r($msgInfo);
+            print_r($msgInfo);
             $message = new Message();
             $message->setMessage($msgInfo->message);
             $room = $em->getRepository('AppBundle:Room')->findOneBy(array('id'=>$msgInfo->roomId));
@@ -75,7 +76,7 @@ class MessageHandler
         // convert timestamp to fit interface time format
         // store in array
 
-        print_r($msgList);
+        //print_r($msgList);
         // return json to be sent to interface
         return json_encode($msgList);
     }

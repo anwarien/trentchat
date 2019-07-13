@@ -53,7 +53,7 @@
         conn.onopen = function(e) {
             console.log("Connection established!");
             subscribe(conn,roomName);
-            conn.send(JSON.stringify({command: "connect", user: user, roomId: roomId}));
+            conn.send(JSON.stringify({command: "connect", user: user, roomId: roomId,userId:userId}));
             // load previous messages upon connection to room
 
         };
