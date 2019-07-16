@@ -10,6 +10,8 @@ namespace AppBundle\WebSocket;
 
 
 use Doctrine\ORM\EntityManager;
+use Ratchet\WebSocket\WsServer;
+use React\EventLoop\LoopInterface;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Ratchet\ConnectionInterface;
 use Ratchet\RFC6455\Messaging\MessageInterface;
@@ -44,16 +46,21 @@ class ChatSocket implements MessageComponentInterface {
         $this->messageHandler = $this->container->get('message.handler');
     }
 
+
+    // TODO on connection, store all info related to the user in the chat room
+    // TODO roomId,userId, etc. So when user is disconnected, the info will be kept in track in the chat socket
     public function onOpen(ConnectionInterface $conn) {
         // Store the new connection to send messages to later
         $this->clients->attach($conn);
         echo "connection ({$conn->resourceId}) has logged in!\n";
-        $this->users[$conn->resourceId] = $conn;
+        //$this->users[$conn->resourceId] = $conn;
+        $this->users[$conn->resourceId] = array(
+            'conn' => $conn
+        );
     }
 
     public function onMessage(ConnectionInterface $from, $msg) {
         $numRecv = count($this->clients) - 1;
-
        echo sprintf('Connection %d sending message "%s" to %d other connection%s' . "\n"
             , $from->resourceId, $msg, $numRecv, $numRecv == 1 ? '' : 's');
 
@@ -70,7 +77,7 @@ class ChatSocket implements MessageComponentInterface {
                     $target = $this->subscriptions[$from->resourceId];
                     foreach ($this->subscriptions as $id=>$channel) {
                         if ($channel == $target) {
-                            $this->users[$id]->send($msg);
+                            $this->users[$id]['conn']->send($msg);
                             $this->messageHandler->storeMessage($msg);
                         }
                     }
@@ -81,9 +88,15 @@ class ChatSocket implements MessageComponentInterface {
                     //target is the chatroom you want to send msg to
                     $target = $this->subscriptions[$from->resourceId];
 
+                    //add db info to users array
+                    $this->users[$from->resourceId]['user']= $data['user'];
+                    $this->users[$from->resourceId]['userId']= $data['userId'];
+                    $this->users[$from->resourceId]['roomId']= $data['roomId'];
+
+
                     //load previous messages from chat room upon connecting
                     $loadMsgJson =$this->messageHandler->loadMessages($msg);
-                    $this->users[$from->resourceId]->send($loadMsgJson);
+                    $this->users[$from->resourceId]['conn']->send($loadMsgJson);
 
                     foreach ($this->subscriptions as $id=>$channel) {
                         if ($channel == $target) {
@@ -101,7 +114,7 @@ class ChatSocket implements MessageComponentInterface {
                                 //array_push($this->online[$channel], array('id'=>$from->resourceId ,'user' => $data['user']));
                                 $this->online[$channel][$from->resourceId] = array('id'=>$from->resourceId,'user'=>$data['user']);
                             }
-                            $this->users[$id]->send(json_encode(array("command"=>"online",
+                            $this->users[$id]['conn']->send(json_encode(array("command"=>"online",
                                 "list"=>$this->online[$channel])));
                             echo "\n ***JSON BEING SENT AS ONLINE LIST:" . json_encode($this->online[$channel]) . "***\n";
                             //convert 'user is online' messages to 'message' json
@@ -113,13 +126,16 @@ class ChatSocket implements MessageComponentInterface {
                                 "message"=>$messageStr,
                                 'roomId'=>$joinMsg->roomId,
                                 'userId'=>$joinMsg->userId));
-                            $this->users[$id]->send($joinRoomJson);
+                            $this->users[$id]['conn']->send($joinRoomJson);
                             $joinMsg = json_decode($joinRoomJson);
                             $joinMsg->message = str_replace($data['user'],"", $messageStr);
                             $this->messageHandler->storeMessage(json_encode($joinMsg));
                         }
                     }
                 }
+                break;
+            case 'disconnect':
+                //$this->messageHandler->storeMessage($msg);
                 break;
         }
     }
@@ -138,17 +154,19 @@ class ChatSocket implements MessageComponentInterface {
                 echo "\nChannel: $channel";
                 echo "\nTarget: $target";
                 if ($channel == $target) {
-                    echo "\n***USER  IS BEING REMOVED***\n";
-                    $this->users[$id]->send(json_encode(array("command"=>"message",
-                        "message"=>$this->online[$channel][$conn->resourceId]['user']. " has left the room")));
+                    echo "\n***USER IS BEING REMOVED***\n";
+                    // TODO send disconnect message to database
+                    $msgJson = json_encode(array("command"=>"message",
+                        'user' => $this->online[$channel][$conn->resourceId]['user'],
+                        'message'=>" has left the room",
+                        'userId' =>$this->users[$conn->resourceId]['userId'],
+                        'roomId' => $this->users[$conn->resourceId]['roomId']));
+                    $this->users[$id]['conn']->send($msgJson);
+                    $this->messageHandler->storeMessage($msgJson);
                     unset($this->online[$channel][$conn->resourceId]);
                     print_r($this->online[$channel]);
-                    $this->users[$id]->send(json_encode(array("command"=>"online",
+                    $this->users[$id]['conn']->send(json_encode(array("command"=>"online",
                         "list"=>$this->online[$channel])));
-                    //convert 'user is online' messages to 'message' json
-
-                    //unset($this->subscriptions[$conn->resourceId]);
-                    //unset($this->users[$conn->resourceId]);
                     echo "channel list:\n";
                     unset($this->subscriptions[$conn->resourceId]);
                     print_r($this->subscriptions);
@@ -164,8 +182,11 @@ class ChatSocket implements MessageComponentInterface {
 
         echo "Connection {$conn->resourceId} has disconnected\n";
     }
+
+
     public function onError(ConnectionInterface $conn, \Exception $e) {
         echo "AN ERROR HAS OCCURRED: {$e->getMessage()} LINE ".$e->getLine()."\n";
         $conn->close();
     }
+
 }

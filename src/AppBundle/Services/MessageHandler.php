@@ -25,9 +25,7 @@ class MessageHandler
     }
 
     public function storeMessage($msgJson) {
-            echo "storeMessage()\n";
         try {
-
             $em = $this->container->get('doctrine.orm.entity_manager');
             $msgInfo = json_decode($msgJson);
             print_r($msgInfo);
