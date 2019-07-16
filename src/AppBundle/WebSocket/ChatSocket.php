@@ -47,8 +47,6 @@ class ChatSocket implements MessageComponentInterface {
     }
 
 
-    // TODO on connection, store all info related to the user in the chat room
-    // TODO roomId,userId, etc. So when user is disconnected, the info will be kept in track in the chat socket
     public function onOpen(ConnectionInterface $conn) {
         // Store the new connection to send messages to later
         $this->clients->attach($conn);
@@ -133,9 +131,6 @@ class ChatSocket implements MessageComponentInterface {
                         }
                     }
                 }
-                break;
-            case 'disconnect':
-                //$this->messageHandler->storeMessage($msg);
                 break;
         }
     }
