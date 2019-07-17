@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ffe60950-85ca-4d2c-9c49-d96c2398bddf" name="Default" comment="removed comment from onClose()">
+    <list default="true" id="ffe60950-85ca-4d2c-9c49-d96c2398bddf" name="Default" comment="removed disconnect switch case">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Services/MessageHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Services/MessageHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php" afterDir="false" />
     </list>
@@ -32,44 +33,14 @@
     <favorites_list name="trentchat" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5694532">
+    <splitter split-orientation="horizontal" split-proportion="0.55503356">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file leaf-file-name="Room.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Room.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="29" column="16" selection-start-line="29" selection-end-line="30" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ChatSocket.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="161" column="72" selection-start-line="161" selection-start-column="72" selection-end-line="161" selection-end-column="72" />
-                  <folding>
-                    <element signature="e#125#156#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Message.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Message.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
-                  <caret line="38" selection-start-line="38" selection-end-line="38" />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="MessageHandler.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/AppBundle/Services/MessageHandler.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="147">
-                  <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+                <state relative-caret-position="540">
+                  <caret line="44" selection-start-line="44" selection-end-line="44" />
                   <folding>
                     <element signature="e#120#149#0#PHP" expanded="true" />
                   </folding>
@@ -77,15 +48,24 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="RoomController.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="513">
+                  <caret line="84" column="10" selection-start-line="84" selection-start-column="10" selection-end-line="84" selection-end-column="10" />
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="chat.html.twig" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="45">
-                  <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+                <state relative-caret-position="1905">
+                  <caret line="127" column="11" selection-start-line="127" selection-start-column="11" selection-end-line="127" selection-end-column="11" />
                 </state>
               </provider>
             </entry>
@@ -175,7 +155,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/chat/createroom.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/chat/login.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/ChatLog.php" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig" />
@@ -184,9 +163,10 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Message.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Command/ServerCommand.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Services/MessageHandler.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Services/MessageHandler.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" />
       </list>
     </option>
   </component>
@@ -276,8 +256,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="102" />
-    <option name="y" value="-11" />
+    <option name="x" value="101" />
+    <option name="y" value="-12" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -287,6 +267,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -310,28 +291,7 @@
               <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Command" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Services" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="WebSocket" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
@@ -342,7 +302,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -622,21 +581,9 @@
       <workItem from="1563207115249" duration="88000" />
       <workItem from="1563226969272" duration="844000" />
       <workItem from="1563230936540" duration="6003000" />
-      <workItem from="1563307173174" duration="6173000" />
-    </task>
-    <task id="LOCAL-00006" summary="added User entity and Doctrine Database Migrations Bundle;">
-      <created>1510337157235</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1510337157235</updated>
-    </task>
-    <task id="LOCAL-00007" summary="update profile page; added datafixturesbundle; made changes to User entity;">
-      <created>1510348125815</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1510348125815</updated>
+      <workItem from="1563307173174" duration="9948000" />
+      <workItem from="1563377708903" duration="2800000" />
+      <workItem from="1563383737289" duration="837000" />
     </task>
     <task id="LOCAL-00008" summary="created fixtures for loading dummy data">
       <created>1510349693203</created>
@@ -967,11 +914,25 @@
       <option name="project" value="LOCAL" />
       <updated>1563058520628</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="'disconncted' message now stores in database">
+      <created>1563313713859</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1563313713860</updated>
+    </task>
+    <task id="LOCAL-00056" summary="removed disconnect switch case">
+      <created>1563314435941</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1563314435941</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="717763000" />
+    <option name="totallyTimeSpent" value="725175000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -986,7 +947,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15191898" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15031983" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.13851352" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5021482" side_tool="true" weight="0.2777778" />
@@ -1015,8 +976,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="removed 'isJson' method" />
-    <MESSAGE value="added global twig param" />
     <MESSAGE value="removed 403 message" />
     <MESSAGE value="created link for creating new user" />
     <MESSAGE value="added new methods to user entity" />
@@ -1040,7 +999,9 @@
     <MESSAGE value="loads messages from database" />
     <MESSAGE value="&quot;joined the room&quot; message now stores in database" />
     <MESSAGE value="removed comment from onClose()" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed comment from onClose()" />
+    <MESSAGE value="'disconncted' message now stores in database" />
+    <MESSAGE value="removed disconnect switch case" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed disconnect switch case" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1280,13 +1241,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="70" column="9" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6">
@@ -1320,6 +1274,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1652">
+          <caret line="40" column="42" lean-forward="true" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Room.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1329,35 +1297,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Services/MessageHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+        <state relative-caret-position="540">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
           <folding>
             <element signature="e#120#149#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Message.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        <state relative-caret-position="513">
+          <caret line="84" column="10" selection-start-line="84" selection-start-column="10" selection-end-line="84" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/WebSocket/ChatSocket.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="161" column="72" selection-start-line="161" selection-start-column="72" selection-end-line="161" selection-end-column="72" />
-          <folding>
-            <element signature="e#125#156#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="1905">
+          <caret line="127" column="11" selection-start-line="127" selection-start-column="11" selection-end-line="127" selection-end-column="11" />
         </state>
       </provider>
     </entry>

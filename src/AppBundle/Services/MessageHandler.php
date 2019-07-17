@@ -32,7 +32,6 @@ class MessageHandler
             $message = new Message();
             $message->setMessage($msgInfo->message);
             $room = $em->getRepository('AppBundle:Room')->findOneBy(array('id'=>$msgInfo->roomId));
-            //echo gettype($room);
             $message->setRoom($room->getId());
             $message->setUserId($msgInfo->userId);
             $dateTime = new DateTime();
@@ -52,12 +51,9 @@ class MessageHandler
         $msgList = array(
             'command' => 'loadMessages',
             'messages'=> array());
-        // User joins chat room
-        // Chat messages are loaded from room by room ID
         $msgInfo = json_decode($json);
-        // room ID needed for room
+
         $roomId = $msgInfo->roomId;
-        // use doctrine to load each message entity up based on room id given
         $messages = $em->getRepository('AppBundle:Message')->findBy(array('room'=>$roomId));
 
 
@@ -71,17 +67,8 @@ class MessageHandler
             array_push($msgList['messages'],['message'=> $username.$msg,
                 'timestamp'=>$time]);
         }
-        // convert timestamp to fit interface time format
-        // store in array
-
-        //print_r($msgList);
-        // return json to be sent to interface
         return json_encode($msgList);
     }
 
-    private function convertTimeFormat($str) {
-        // 07-11-2019 20:59:54
-
-    }
 
 }

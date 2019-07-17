@@ -77,6 +77,14 @@ class RoomController extends Controller
     }
 
 
+    public function removeRoomAction() {
+        // room is deleted
+        // every user's role of deleted room is deleted
+        // messages related to room are removed
+        // cannot delete room while user is in room
+        //
+
+    }
 
     /**
      * @Route("/chat/rooms", name="roomlist")

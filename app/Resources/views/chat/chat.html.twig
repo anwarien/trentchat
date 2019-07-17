@@ -54,13 +54,9 @@
             console.log("Connection established!");
             subscribe(conn,roomName);
             conn.send(JSON.stringify({command: "connect", user: user, roomId: roomId,userId:userId}));
-            // load previous messages upon connection to room
-
         };
         conn.onclose = function (e) {
-            //$('#user_list').remove($('<li>').text(user));
             conn.send(JSON.stringify({command: "disconnect", user: user}));
-            //conn.send(user + ' has left the room');
         };
         conn.onmessage = function(e) {
             console.log(e.data);
@@ -93,7 +89,6 @@
                         message = message.replace(/["']/g, "");
                         var time = JSON.stringify(messages[m]['timestamp']);
                         time = time.replace(/["']/g, "");
-                        // console.log(msg + time);
                         createMessage([message,time],true);
                     }
                     break;
@@ -130,7 +125,7 @@
             }
 
         }
-        //TODO : 2:03 = 2:3 on interface. Fix This
+        // TODO : 2:03 = 2:3 on interface. Fix This
         function timeStamp() {
             var currentDate = new Date();
             return currentDate.getHours()  + ":"+ currentDate.getMinutes();

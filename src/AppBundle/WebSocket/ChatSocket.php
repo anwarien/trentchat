@@ -150,7 +150,6 @@ class ChatSocket implements MessageComponentInterface {
                 echo "\nTarget: $target";
                 if ($channel == $target) {
                     echo "\n***USER IS BEING REMOVED***\n";
-                    // TODO send disconnect message to database
                     $msgJson = json_encode(array("command"=>"message",
                         'user' => $this->online[$channel][$conn->resourceId]['user'],
                         'message'=>" has left the room",
