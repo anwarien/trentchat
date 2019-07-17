@@ -76,13 +76,25 @@ class RoomController extends Controller
         ));
     }
 
+    /**
+     * @Route("/chat/removeroom", name="removeroom")
+     */
+    public function removeRoomAction(Request $request) {
 
-    public function removeRoomAction() {
+
+        // authenticate
+        // is the user the owner of the room?
+        // possess the correct roles for said room?
+
+
+        $em = $this->getDoctrine()->getManager();
+
         // room is deleted
         // every user's role of deleted room is deleted
         // messages related to room are removed
         // cannot delete room while user is in room
         //
+
 
     }
 
@@ -94,7 +106,6 @@ class RoomController extends Controller
         //displays list of chatrooms to go to
 
         $em = $this->getDoctrine()->getManager();
-        //$users = $em->getRepository('AppBundle:User')->findAllVerified();
         $rooms = $em->getRepository('AppBundle:Room')->findAll();
 
         return $this->render('chat/roomlist.html.twig', [
