@@ -9,10 +9,10 @@
         <ul><h4><a href="{{path('roomlist')}}">Rooms</a></h4></ul>
         <ul><h4><a href="{{path('fos_user_security_logout')}}">Logout</a></h4></ul>
         {% else %}
-            {% endif %}
+            <ul><h4><a href="{{path('fos_user_security_login')}}">Login</a></h4></ul>
+    {% endif %}
     {% if is_granted('ROLE_ADMIN') %}
         <label>ADMINS ONLY!</label>
         {% endif %}
-    <ul><h4><a href="{{path('fos_user_security_login')}}">Login</a></h4></ul>
     <ul><h4><a href="{{path('fos_user_registration_register')}}">Create New User</a></h4></ul>
 {% endblock %}

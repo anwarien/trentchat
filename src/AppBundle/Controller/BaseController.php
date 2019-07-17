@@ -9,9 +9,9 @@
 namespace AppBundle\Controller;
 
 
-use Symfony\Component\HttpKernel\Tests\Controller;
 
-class BaseController extends Controller
+
+class BaseController
 {
 
 }
