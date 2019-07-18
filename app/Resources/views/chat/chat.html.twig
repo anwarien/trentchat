@@ -1,7 +1,6 @@
-<!doctype html>
-<html>
-<head>
-    <title>{% block title %}Chat Room: {{ chat }} {% endblock %}</title>
+{% extends 'base.html.twig' %}
+
+{% block title %}Chat Room: {{ chat }} {% endblock %}
     {% block stylesheets %}
         <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -28,8 +27,6 @@
     </style>
     {% endblock %}
 
-</head>
-<body>
 
 {% block body %}
     <label id = "user_label"><b>Online</b></label>
@@ -132,5 +129,3 @@
         }
     </script>
 {% endblock %}
-</body>
-</html>
