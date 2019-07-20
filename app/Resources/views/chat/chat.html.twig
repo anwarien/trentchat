@@ -5,8 +5,8 @@
         <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font: 13px Helvetica, Arial; }
-        label {  background: #FFF;  padding: 3px;  text-align: center;  position: fixed;
-            bottom: 0;  right:0;  top: 0;  width: 10%;  border:1px solid gray;  }
+        /*label {  background: #FFF;  padding: 3px;  text-align: center;  position: fixed;*/
+            /*bottom: 0;  right:0;  top: 0;  width: 10%;  border:1px solid gray;  }*/
         timestamp  {
             text-align: left;
             font-size: 12px;
@@ -22,7 +22,12 @@
         }
         #messages li:nth-child(odd) { background: #eee; }
         #messages { margin-bottom: 40px }
-        #user_label{list-style-type: none;}
+        #user_label { background: #FFF;  padding: 3px;  text-align: center;  position: fixed;
+            bottom: 0;  right:0;  top: 0;  width: 10%;  border:1px solid gray; list-style-type: none;
+        }
+        #room_label{ background: #FFF;  padding: 3px;  text-align: center;  position: fixed;
+            bottom: 0;  right:0;  top: 0;  width: 10%;  border:1px solid gray; list-style-type: none;
+        }
         #user_list {list-style-type: none;}
     </style>
     {% endblock %}
@@ -31,7 +36,7 @@
 {% block body %}
     <label id = "user_label"><b>Online</b></label>
     <ul id = "user_list"></ul>
-    <div id="messages"></div>
+    <div class ="container-fluid" id="messages"></div>
     <div id="time_stamp"></div>
     <form action="">
         <input id="m" autocomplete="off"/><button>Send</button>

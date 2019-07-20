@@ -1,5 +1,4 @@
 {% extends 'base.html.twig'%}
-
 {#TODO: What if rooms generate same role?#}
 {#TODO: Can you access private room by typing in the url?#}
 {% block body %}
@@ -29,18 +28,4 @@
         </tbody>
     </table>
     <h4><a href="{{path('createroom')}}">Create Room</a></h4>
-    <script>
-        function roleCheck(roomRole) {
-            var userRoles = '{{ app.user.roles|join(', ')}}';
-            alert("User Roles: " + userRoles+ "Room Role: "+roomRole);
-            if (userRoles.includes(roomRole.toUpperCase())){
-                alert("allowed to enter room");
-            }
-            else {
-                alert("You are not allowed to enter this room");
-            }
-
-        }
-        
-    </script>
 {% endblock %}
