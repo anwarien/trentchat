@@ -14,7 +14,7 @@
            {% for room in rooms %}
                <tr>
                    <td>
-                       {% if room.roomRole == null %}
+                       {% if room.roomType == 0 %}
                            <a href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>
                        {% else %}
                            {% if room.roomRole  in app.user.roles %}
