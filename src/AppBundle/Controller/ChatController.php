@@ -25,7 +25,14 @@ class ChatController extends Controller
      * @Route("/",name="homepage")
      */
     public function homepageAction() {
-        return $this->render('chat/login.html.twig');
+
+
+        $em = $this->getDoctrine()->getManager();
+        $rooms = $em->getRepository('AppBundle:Room')->findAll();
+        return $this->render('chat/login.html.twig',[
+            'rooms' => $rooms,
+        ]);
+
     }
 
 
