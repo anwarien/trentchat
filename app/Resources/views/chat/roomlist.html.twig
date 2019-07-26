@@ -2,30 +2,32 @@
 {#TODO: What if rooms generate same role?#}
 {#TODO: Can you access private room by typing in the url?#}
 {% block body %}
-    <h1>Rooms</h1>
-    <table>
-        <thead>
-        <tr>
-            <th>Name</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for room in rooms %} 
-            <tr>
-                <td>
-                    {% if room.roomRole == null %}
-                    <a href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>
-                    {% else %}
-                        {% if room.roomRole  in app.user.roles %}
-                            <a href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>     <label><b>Private</b></label>
-                        {% else %}
-                            <a onclick="alert('{{ room.roomRole }} {{ app.user.roles|join(', ') }}' )" >{{ room.RoomName}}</a>     <label><b>Private</b></label>
-                        {% endif %}
-                    {% endif %}
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    <h4><a href="{{path('createroom')}}">Create Room</a></h4>
+   <div class="container">
+       <h1>Rooms</h1>
+       <table>
+           <thead>
+           <tr>
+               <th>Name</th>
+           </tr>
+           </thead>
+           <tbody>
+           {% for room in rooms %}
+               <tr>
+                   <td>
+                       {% if room.roomRole == null %}
+                           <a href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>
+                       {% else %}
+                           {% if room.roomRole  in app.user.roles %}
+                               <a href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>     <label><b>Private</b></label>
+                           {% else %}
+                               <a onclick="alert('You are not allowed to enter this room')" >{{ room.RoomName}}</a>     <label><b>Private</b></label>
+                           {% endif %}
+                       {% endif %}
+                   </td>
+               </tr>
+           {% endfor %}
+           </tbody>
+       </table>
+       <h4><a href="{{path('createroom')}}">Create Room</a></h4>
+   </div>
 {% endblock %}

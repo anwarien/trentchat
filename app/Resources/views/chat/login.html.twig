@@ -1,17 +1,55 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Login{% endblock %}
+{% block stylesheets %}{% endblock %}
 {% block body %}
-<h1>Home Page</h1>
+    {# TODO Bootstrap responsive layout#}
+    <div class="container mt-3">
+    <div class="row">
+        <div class="col-md-3 col-lg-3">
+        </div>
+        <div class="col-md-3 col-lg-4">
+            <h1>Home</h1>
+        </div>
+        <div class="col-md-3 col-lg-5">
+            {% if is_granted('ROLE_USER') %}
+                <small class="text-muted">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</small>
+            {% endif %}
+        </div>
+    </div>
+    </div>
     {% if is_granted('ROLE_USER') %}
-        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
-        <ul><h4><a href="{{path('roomlist')}}">Rooms</a></h4></ul>
-        <ul><h4><a href="{{path('fos_user_security_logout')}}">Logout</a></h4></ul>
-        {% else %}
-            <ul><h4><a href="{{path('fos_user_registration_register')}}">Register User</a></h4></ul>
-            <ul><h4><a href="{{path('fos_user_security_login')}}">Login</a></h4></ul>
+        <div class="container mt-3">
+        <!--Row with two equal columns-->
+        <div class="row">
+            <div class="col-md-6 col-lg-6">
+                <div>
+                    <ul><h4><a href="{{path('roomlist')}}">Rooms</a></h4></ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div>
+                    <ul><h4><a href="{{path('fos_user_security_logout')}}">Logout</a></h4></ul>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="container mt-3">
+        <!--Row with two equal columns-->
+        <div class="row">
+            <div class="col-md-6 col-lg-6">
+                <div>
+                    <h4><a href="{{path('fos_user_registration_register')}}">Register User</a></h4>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div>
+                    <h4><a href="{{path('fos_user_security_login')}}">Login</a></h4>
+                </div>
+            </div>
+        </div>
     {% endif %}
     {% if is_granted('ROLE_ADMIN') %}
         <label>ADMINS ONLY!</label>
-        {% endif %}
+    {% endif %}
 {% endblock %}
