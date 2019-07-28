@@ -82,13 +82,10 @@
                 {% for room in rooms %}
 
                 {% if room.roomRole  in app.user.roles %}
+
                 var room = '{{ room.roomName }}';
-                var roomLink = "{{ path('chatroom', {'chatroom': room.roomName})}}"
-
-                //$(document).ready(function() {
-                    $( "#room_label" ).append( "<ul><a href='"+roomLink+"'>"+room+"</a></ul>" );
-                //});
-
+                var roomLink = "{{ path('chatroom', {'chatroom': room.roomName})}}";
+                $( "#room_label" ).append( "<ul><a href='"+roomLink+"'>"+room+"</a></ul>" );
                 {% else %}
 
                 {% endif %}
