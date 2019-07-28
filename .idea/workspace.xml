@@ -34,8 +34,8 @@
       <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+            <state relative-caret-position="225">
+              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="28" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -52,8 +52,8 @@
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+            <state relative-caret-position="385">
+              <caret line="88" column="35" selection-start-line="88" selection-start-column="35" selection-end-line="88" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -61,8 +61,8 @@
       <file leaf-file-name="roomlist.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+            <state relative-caret-position="300">
+              <caret line="20" column="114" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="114" />
             </state>
           </provider>
         </entry>
@@ -666,14 +666,7 @@
       <workItem from="1564198207090" duration="841000" />
       <workItem from="1564199096922" duration="378000" />
       <workItem from="1564250664105" duration="250000" />
-      <workItem from="1564331815677" duration="768000" />
-    </task>
-    <task id="LOCAL-00018" summary="using JSON format for messages about user connecting/disconnecting">
-      <created>1521834265473</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1521834265473</updated>
+      <workItem from="1564331815677" duration="3480000" />
     </task>
     <task id="LOCAL-00019" summary="separated username from string and put into key value format in 'message' json">
       <created>1521836970839</created>
@@ -1011,11 +1004,18 @@
       <option name="project" value="LOCAL" />
       <updated>1564183727608</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="room label only appears when logged in">
+      <created>1564332814225</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1564332814227</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="814787000" />
+    <option name="totallyTimeSpent" value="817499000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1028,6 +1028,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18456376" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.13851352" />
@@ -1080,7 +1081,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed position to timestamp" />
     <MESSAGE value="removed useless link on interface" />
     <MESSAGE value="installed monolog" />
     <MESSAGE value="created ChatLog entity" />
@@ -1105,7 +1105,8 @@
     <MESSAGE value="interface changes" />
     <MESSAGE value="room label only appears for logged in users; room list checks for type rather than role" />
     <MESSAGE value="displays private rooms user is allowed in" />
-    <option name="LAST_COMMIT_MESSAGE" value="displays private rooms user is allowed in" />
+    <MESSAGE value="room label only appears when logged in" />
+    <option name="LAST_COMMIT_MESSAGE" value="room label only appears when logged in" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1384,31 +1385,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="17" column="49" selection-start-line="17" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -1419,10 +1399,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="28" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="114" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+        <state relative-caret-position="385">
+          <caret line="88" column="35" selection-start-line="88" selection-start-column="35" selection-end-line="88" selection-end-column="35" />
         </state>
       </provider>
     </entry>
