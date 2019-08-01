@@ -14,8 +14,10 @@
            {% for room in rooms %}
                <tr>
                    <td>
-                       {% if room.roomType == 0 %}
+                       {% if room.roomType == 0 and room.roomRole in app.user.roles %}
                            <a href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>
+                       {% elseif room.roomType == 0 and room.roomRole not in app.user.roles %}
+                           <a onclick="joinRoom({{ room.roomRole }})" >{{ room.RoomName}}</a>
                        {% else %}
                            {% if room.roomRole  in app.user.roles %}
                                <a href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>     <label><b>Private</b></label>
@@ -29,5 +31,20 @@
            </tbody>
        </table>
        <h4><a href="{{path('createroom')}}">Create Room</a></h4>
+       <script>
+           function joinRoom(roomRole) {
+               // if user hasn't joined this room, this method will be called
+               // else user will just enter room
+               var txt;
+               var r = confirm("Join this room?");
+               if (r == true) {
+                   // add role to user and enter room
+               } else {
+                   // cancel
+               }
+
+               //redirect url after adding role to user
+           }
+       </script>
    </div>
 {% endblock %}

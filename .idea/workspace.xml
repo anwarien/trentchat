@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ffe60950-85ca-4d2c-9c49-d96c2398bddf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,11 +31,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="28" selection-end-column="11" />
+            <state relative-caret-position="1140">
+              <caret line="76" column="52" selection-start-line="76" selection-start-column="52" selection-end-line="76" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoomController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="89" column="49" selection-start-line="89" selection-start-column="49" selection-end-line="89" selection-end-column="49" />
+              <folding>
+                <element signature="e#819#2379#0#PHP" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -43,26 +55,26 @@
       <file leaf-file-name="ChatController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+            <state>
+              <caret column="5" selection-start-column="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="88" column="35" selection-start-line="88" selection-start-column="35" selection-end-line="88" selection-end-column="35" />
+            <state relative-caret-position="660">
+              <caret line="52" column="7" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="roomlist.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="roomlist.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="114" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="114" />
+            <state relative-caret-position="159">
+              <caret line="18" column="94" lean-forward="true" selection-start-line="18" selection-start-column="94" selection-end-line="18" selection-end-column="94" />
             </state>
           </provider>
         </entry>
@@ -79,8 +91,8 @@
       <file leaf-file-name="chat.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="17" column="49" selection-start-line="17" selection-end-line="18" />
+            <state relative-caret-position="420">
+              <caret line="28" column="96" selection-start-line="28" selection-start-column="96" selection-end-line="28" selection-end-column="97" />
             </state>
           </provider>
         </entry>
@@ -186,11 +198,11 @@
         <option value="$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/chat/list.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/chat/login.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php" />
         <option value="$PROJECT_DIR$/web/css/chatroom.css" />
-        <option value="$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig" />
       </list>
     </option>
   </component>
@@ -280,10 +292,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-525" />
-    <option name="y" value="-10" />
-    <option name="width" value="2425" />
-    <option name="height" value="1105" />
+    <option name="x" value="-19" />
+    <option name="y" value="-15" />
+    <option name="width" value="1939" />
+    <option name="height" value="1059" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -298,69 +310,6 @@
             <path>
               <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
               <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="chat" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="default" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="trentchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trentchat" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -666,21 +615,17 @@
       <workItem from="1564198207090" duration="841000" />
       <workItem from="1564199096922" duration="378000" />
       <workItem from="1564250664105" duration="250000" />
-      <workItem from="1564331815677" duration="3480000" />
-    </task>
-    <task id="LOCAL-00019" summary="separated username from string and put into key value format in 'message' json">
-      <created>1521836970839</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1521836970839</updated>
-    </task>
-    <task id="LOCAL-00020" summary="created 'create user' page">
-      <created>1535505566218</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1535505566218</updated>
+      <workItem from="1564331815677" duration="7532000" />
+      <workItem from="1564430792532" duration="624000" />
+      <workItem from="1564432614136" duration="1236000" />
+      <workItem from="1564452809390" duration="599000" />
+      <workItem from="1564495696920" duration="582000" />
+      <workItem from="1564496767791" duration="3880000" />
+      <workItem from="1564527431617" duration="1394000" />
+      <workItem from="1564550859598" duration="1532000" />
+      <workItem from="1564588262146" duration="658000" />
+      <workItem from="1564596512130" duration="599000" />
+      <workItem from="1564604317452" duration="9543000" />
     </task>
     <task id="LOCAL-00021" summary="added additional labels to createuser">
       <created>1535767223677</created>
@@ -1011,11 +956,25 @@
       <option name="project" value="LOCAL" />
       <updated>1564332814227</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="added hyperlink to room list elements">
+      <created>1564335320265</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1564335320265</updated>
+    </task>
+    <task id="LOCAL-00069" summary="spacing">
+      <created>1564335526002</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1564335526002</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="817499000" />
+    <option name="totallyTimeSpent" value="842198000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1030,7 +989,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18456376" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17651007" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.13851352" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5021482" side_tool="true" weight="0.2777778" />
@@ -1081,8 +1040,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="removed useless link on interface" />
-    <MESSAGE value="installed monolog" />
     <MESSAGE value="created ChatLog entity" />
     <MESSAGE value="created MessageHandler service, renamed entity to Message" />
     <MESSAGE value="messages in chat are stored in database" />
@@ -1106,7 +1063,9 @@
     <MESSAGE value="room label only appears for logged in users; room list checks for type rather than role" />
     <MESSAGE value="displays private rooms user is allowed in" />
     <MESSAGE value="room label only appears when logged in" />
-    <option name="LAST_COMMIT_MESSAGE" value="room label only appears when logged in" />
+    <MESSAGE value="added hyperlink to room list elements" />
+    <MESSAGE value="spacing" />
+    <option name="LAST_COMMIT_MESSAGE" value="spacing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1378,20 +1337,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="112" column="10" selection-start-line="112" selection-start-column="10" selection-end-line="113" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="17" column="49" selection-start-line="17" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/login.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1399,31 +1344,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/chat.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="28" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="114" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="114" />
+        <state relative-caret-position="420">
+          <caret line="28" column="96" selection-start-line="28" selection-start-column="96" selection-end-line="28" selection-end-column="97" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="88" column="35" selection-start-line="88" selection-start-column="35" selection-end-line="88" selection-end-column="35" />
+        <state relative-caret-position="1140">
+          <caret line="76" column="52" selection-start-line="76" selection-start-column="52" selection-end-line="76" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RoomController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="89" column="49" selection-start-line="89" selection-start-column="49" selection-end-line="89" selection-end-column="49" />
+          <folding>
+            <element signature="e#819#2379#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="52" column="7" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/chat/roomlist.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="18" column="94" lean-forward="true" selection-start-line="18" selection-start-column="94" selection-end-line="18" selection-end-column="94" />
         </state>
       </provider>
     </entry>
