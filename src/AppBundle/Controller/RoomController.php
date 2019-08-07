@@ -107,7 +107,6 @@ class RoomController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $rooms = $em->getRepository('AppBundle:Room')->findAll();
-
         return $this->render('chat/roomlist.html.twig', [
             'rooms' => $rooms,
         ]);

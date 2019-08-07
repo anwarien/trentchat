@@ -38,7 +38,6 @@ class UserController extends Controller
     }
 
 
-
     /**
      * @Route("/chat", name="listusers")
      */
@@ -52,9 +51,6 @@ class UserController extends Controller
             'users' => $users,
         ]);
     }
-
-
-
 
 
     /**
@@ -72,7 +68,5 @@ class UserController extends Controller
         );
 
     }
-
-
 
 }

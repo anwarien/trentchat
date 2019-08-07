@@ -2,49 +2,39 @@
 {#TODO: What if rooms generate same role?#}
 {#TODO: Can you access private room by typing in the url?#}
 {% block body %}
-   <div class="container">
-       <h1>Rooms</h1>
-       <table>
-           <thead>
-           <tr>
-               <th>Name</th>
-           </tr>
-           </thead>
-           <tbody>
-           {% for room in rooms %}
-               <tr>
-                   <td>
-                       {% if room.roomType == 0 and room.roomRole in app.user.roles %}
-                           <a href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>
-                       {% elseif room.roomType == 0 and room.roomRole not in app.user.roles %}
-                           <a onclick="joinRoom({{ room.roomRole }})" >{{ room.RoomName}}</a>
-                       {% else %}
-                           {% if room.roomRole  in app.user.roles %}
-                               <a href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>     <label><b>Private</b></label>
-                           {% else %}
-                               <a onclick="alert('You are not allowed to enter this room')" >{{ room.RoomName}}</a>     <label><b>Private</b></label>
-                           {% endif %}
-                       {% endif %}
-                   </td>
-               </tr>
-           {% endfor %}
-           </tbody>
-       </table>
-       <h4><a href="{{path('createroom')}}">Create Room</a></h4>
-       <script>
-           function joinRoom(roomRole) {
-               // if user hasn't joined this room, this method will be called
-               // else user will just enter room
-               var txt;
-               var r = confirm("Join this room?");
-               if (r == true) {
-                   // add role to user and enter room
-               } else {
-                   // cancel
-               }
-
-               //redirect url after adding role to user
-           }
-       </script>
-   </div>
+    <div class="container">
+        <h1>Rooms</h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for room in rooms %}
+                <tr>
+                    <td>
+                        {% if room.roomType == 0 and room.roomRole in app.user.roles %}
+                            <a href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>
+                        {% elseif room.roomType == 0 and room.roomRole not in app.user.roles %}
+                            <a  href="{{
+                            path('chatroom', {'chatroom':room.roomName})
+                            }}"
+                                class="roomConfirm" onclick="confirm('Join this room?')" >{{ room.RoomName}}</a>
+                        {% else %}
+                            {% if room.roomRole  in app.user.roles %}
+                                <a href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>     <label><b>Private</b></label>
+                            {% else %}
+                                <a onclick="alert('You are not allowed to enter this room')" >{{ room.RoomName}}</a>     <label><b>Private</b></label>
+                            {% endif %}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <h4><a href="{{path('createroom')}}">Create Room</a></h4>
+        <script>
+        </script>
+    </div>
 {% endblock %}
