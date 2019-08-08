@@ -77,25 +77,14 @@ class RoomController extends Controller
     }
 
     /**
-     * @Route("/chat/removeroom", name="removeroom")
+     * @Route("/chat/removeroomrole", name="removeroomrole")
      */
-    public function removeRoomAction(Request $request) {
-
-
-        // authenticate
-        // is the user the owner of the room?
-        // possess the correct roles for said room?
-
+    public function removeRoomRoleAction(Request $request) {
 
         $em = $this->getDoctrine()->getManager();
-
-        // room is deleted
-        // every user's role of deleted room is deleted
-        // messages related to room are removed
-        // cannot delete room while user is in room
-        //
-
-
+        $user = $this->getUser();
+        $user->removeRole($request->attributes->get('role'));
+        $em->flush();
     }
 
     /**
