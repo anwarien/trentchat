@@ -85,7 +85,11 @@
 
                 var room = '{{ room.roomName }}';
                 var roomLink = "{{ path('chatroom', {'chatroom': room.roomName})}}";
-                $( "#room_label" ).append( "<ul><a href='"+roomLink+"'>"+room+"</a></ul>" );
+                var deleteLink = "{{ path('removeroomrole',{'role':room.roomRole}) }}"
+                var deletePath = "\" "+ deleteLink+"\"";
+                var deleteImg = "<a href= "+ deletePath+">"+
+                    "<img src=\"{{ asset('images/removeRoom.png') }}\" width=\"12.5\" height=\"12.5\" /></a>";
+                $( "#room_label" ).append( "<ul><a href='"+roomLink+"'>"+room+"</a>     "+deleteImg+"</ul>");
                 {% else %}
 
                 {% endif %}

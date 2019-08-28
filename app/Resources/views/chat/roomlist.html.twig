@@ -20,7 +20,7 @@
                             <a  href="{{
                             path('chatroom', {'chatroom':room.roomName})
                             }}"
-                                class="roomConfirm" onclick="confirm('Join this room?')" >{{ room.RoomName}}</a>
+                                class="roomConfirm" onclick="joinRoom()" >{{ room.RoomName}}</a>
                         {% else %}
                             {% if room.roomRole  in app.user.roles %}
                                 <a href="{{ path('chatroom', {'chatroom': room.roomName})}}">{{ room.RoomName}}</a>     <label><b>Private</b></label>
@@ -35,6 +35,27 @@
         </table>
         <h4><a href="{{path('createroom')}}">Create Room</a></h4>
         <script>
+
+            /*
+            *  from hc interface createAuditTable
+            *       console.log(audit_type+","+audit_id+","+display_name);
+                    var url = '{{ path('getIdentityAudit', {'identity_id':'audit_id'}) }}';
+                    url = url.replace("Identity", audit_type);
+                    url = url.replace("audit_id", audit_id);
+            * */
+
+
+
+            function joinRoom() {
+                var txt;
+                var r = confirm("Join this room?");
+                if (r == true) {
+                    txt = "You pressed OK!";
+                } else {
+                    txt = "You pressed Cancel!";
+                }
+
+            }
         </script>
     </div>
 {% endblock %}

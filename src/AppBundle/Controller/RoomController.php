@@ -78,6 +78,7 @@ class RoomController extends Controller
 
     /**
      * @Route("/chat/removeroomrole", name="removeroomrole")
+     * @Method("GET")
      */
     public function removeRoomRoleAction(Request $request) {
 
@@ -85,6 +86,8 @@ class RoomController extends Controller
         $user = $this->getUser();
         $user->removeRole($request->attributes->get('role'));
         $em->flush();
+        dump($request->attributes->get('role'));
+        return $this->redirectToRoute('roomlist');
     }
 
     /**
