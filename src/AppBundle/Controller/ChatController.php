@@ -30,6 +30,10 @@ class ChatController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $rooms = $em->getRepository('AppBundle:Room')->findAll();
+        $user = $this->getUser();
+
+        //dump($em->getRepository('AppBundle:Message')->findMessagesByUser($user));
+
         return $this->render('chat/login.html.twig',[
             'rooms' => $rooms,
         ]);
@@ -62,6 +66,7 @@ class ChatController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $room = $em->getRepository('AppBundle:Room')->findBy(array('roomName'=>$chatroom));
+        if (!$room) return new Response('<html><body><h1>Room does not exist</h1></body></html>');
         if (!$room) return new Response('<html><body><h1>Room does not exist</h1></body></html>');
         $user = $this->getUser();
         $role = $room[0]->getRoomRole();

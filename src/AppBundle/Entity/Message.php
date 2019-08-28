@@ -14,7 +14,7 @@ use AppBundle\Entity;
 use AppBundle\Entity\Room;
 /**
  * Class Message
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\MessageRepository")
  * @ORM\Table(name="message")
  */
 class Message
