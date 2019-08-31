@@ -32,7 +32,7 @@ class MessageHandler
             $message = new Message();
             $message->setMessage($msgInfo->message);
             $room = $em->getRepository('AppBundle:Room')->findOneBy(array('id'=>$msgInfo->roomId));
-            $message->setRoom($room->getId());
+            $message->setRoom($room);
             $message->setUserId($msgInfo->userId);
             $dateTime = new DateTime();
             $message->setTimeStamp($dateTime->format('m-d-Y H:i'));
@@ -56,17 +56,22 @@ class MessageHandler
         $roomId = $msgInfo->roomId;
         $messages = $em->getRepository('AppBundle:Message')->findBy(array('room'=>$roomId));
 
+        try{
+            foreach ($messages as $message) {
+                $user = $em->getRepository('AppBundle:User')->findOneBy(array('id'=>$message->getUserId()));
+                if (!$user) echo "User is null\n";
+                $username = $user->getUsername();
+                $msg = $message->getMessage();
+                $time = $message->getTimeStamp();
 
-        foreach ($messages as $message) {
-            $user = $em->getRepository('AppBundle:User')->findOneBy(array('id'=>$message->getUserId()));
-            if (!$user) echo "User is null\n";
-            $username = $user->getUsername();
-            $msg = $message->getMessage();
-            $time = $message->getTimeStamp();
-
-            array_push($msgList['messages'],['message'=> $username.$msg,
-                'timestamp'=>$time]);
+                array_push($msgList['messages'],['message'=> $username.$msg,
+                    'timestamp'=>$time]);
+            }
         }
+        catch (Exception $e){
+            echo "Error at ".$e->getLine().":".$e->getMessage();
+        }
+
         return json_encode($msgList);
     }
 

@@ -28,7 +28,7 @@ class Message
     private $id;
     /**
      * @ORM\ManyToOne(targetEntity="Room",inversedBy="Message")
-     * @ORM\Column(type="integer")
+     *
      */
     private $room;
 
@@ -70,7 +70,7 @@ class Message
     }
 
     /**
-     * @return mixed
+     * @return Room $room
      */
     public function getRoom()
     {
@@ -78,9 +78,9 @@ class Message
     }
 
     /**
-     * @param mixed $room
+     * @param Room $room
      */
-    public function setRoom($room)
+    public function setRoom(Room $room)
     {
         $this->room = $room;
     }
