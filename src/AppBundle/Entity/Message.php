@@ -27,7 +27,7 @@ class Message
      */
     private $id;
     /**
-     * @ORM\ManyToOne(targetEntity="Room",inversedBy="Message")
+     * @ORM\ManyToOne(targetEntity="Room",inversedBy="messages")
      *
      */
     private $room;

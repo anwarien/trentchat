@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity;
 /**
@@ -45,6 +46,20 @@ class Room
      * @ORM\Column(type="string")
      */
     private $roomRole;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="Message",mappedBy="room")
+     */
+    private $messages;
+
+
+
+    public function __construct()
+    {
+        $this->messages = new ArrayCollection();
+    }
+
 
     /**
      * @return mixed
@@ -101,4 +116,18 @@ class Room
     {
         return $this->id;
     }
+
+    /**
+     * @return ArrayCollection|Message[]
+     */
+    public function getMessages()
+    {
+        return $this->messages;
+    }
+
+
+
+
+
+
 }
