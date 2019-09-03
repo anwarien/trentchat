@@ -26,7 +26,7 @@ class MessageRepository extends EntityRepository
 
         return $this->createQueryBuilder('message')
             ->andWhere('message.userId = :userId')
-            ->setParameter('userId',$user->getId())
+            ->setParameter('userId',$user)
             ->getQuery()
             ->execute();
 
