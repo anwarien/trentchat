@@ -33,9 +33,9 @@ class Message
     private $room;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="User",inversedBy="messages")
      */
-    private $userId;
+    private $user;
 
     /**
      * @ORM\Column(type="string")
@@ -91,19 +91,19 @@ class Message
 
 
     /**
-     * @return mixed
+     * @return User $user
      */
-    public function getUserId()
+    public function getUser()
     {
-        return $this->userId;
+        return $this->user;
     }
 
     /**
-     * @param mixed $userId
+     * @param User $user
      */
-    public function setUserId($userId)
+    public function setUser($user)
     {
-        $this->userId = $userId;
+        $this->user = $user;
     }
 
 

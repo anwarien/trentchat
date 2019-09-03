@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 
@@ -38,6 +39,26 @@ class User extends BaseUser
      * @ORM\Column(type="string",nullable =true)
      */
     private $description;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Message",mappedBy="user")
+     */
+    private $messages;
+
+
+    public function __construct()
+    {
+        $this->messages = new ArrayCollection();
+    }
+
+
+    /**
+     * @return ArrayCollection|Message[]
+     */
+    public function getMessages()
+    {
+        return $this->messages;
+    }
 
     /**
      * @return mixed

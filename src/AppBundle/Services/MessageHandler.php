@@ -32,8 +32,9 @@ class MessageHandler
             $message = new Message();
             $message->setMessage($msgInfo->message);
             $room = $em->getRepository('AppBundle:Room')->findOneBy(array('id'=>$msgInfo->roomId));
+            $user = $em->getRepository('AppBundle:User')->findOneBy(array('id'=>$msgInfo->userId));
             $message->setRoom($room);
-            $message->setUserId($msgInfo->userId);
+            $message->setUser($user);
             $dateTime = new DateTime();
             $message->setTimeStamp($dateTime->format('m-d-Y H:i'));
             $em->persist($message);
@@ -58,7 +59,7 @@ class MessageHandler
 
         try{
             foreach ($messages as $message) {
-                $user = $em->getRepository('AppBundle:User')->findOneBy(array('id'=>$message->getUserId()));
+                $user = $em->getRepository('AppBundle:User')->findOneBy(array('id'=>$message->getUser()));
                 if (!$user) echo "User is null\n";
                 $username = $user->getUsername();
                 $msg = $message->getMessage();
