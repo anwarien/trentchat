@@ -102,10 +102,9 @@ class RoomController extends Controller
         $rooms = $em->getRepository('AppBundle:Room')->findAll();
 
 //        $form = $this->createForm(RoomListFormType::class);
-//        return $this->render('chat/roomlist.html.twig', [
-//            'roomListForm' $form->create
-//            'rooms' => $rooms,
-//        ]);
+        return $this->render('chat/roomlist.html.twig', [
+            'rooms' => $rooms,
+        ]);
 
     }
 }
