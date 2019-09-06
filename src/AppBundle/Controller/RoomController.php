@@ -9,7 +9,9 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Form\RoomListFormType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -21,7 +23,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use AppBundle\Entity\Room;
 use RandomLib\Factory;
 use SecurityLib;
-
 class RoomController extends Controller
 {
 
@@ -99,9 +100,12 @@ class RoomController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $rooms = $em->getRepository('AppBundle:Room')->findAll();
-        return $this->render('chat/roomlist.html.twig', [
-            'rooms' => $rooms,
-        ]);
+
+//        $form = $this->createForm(RoomListFormType::class);
+//        return $this->render('chat/roomlist.html.twig', [
+//            'roomListForm' $form->create
+//            'rooms' => $rooms,
+//        ]);
 
     }
 }
